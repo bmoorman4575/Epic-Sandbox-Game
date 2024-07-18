@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__Physics3D__CreateWall !== "undefined") {
 gdjs.evtsExt__Physics3D__CreateWall = {};
 
 
-gdjs.evtsExt__Physics3D__CreateWall.userFunc0x13966e0 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__Physics3D__CreateWall.userFunc0x12e8f90 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 const scene = runtimeScene.getLayer('').getRenderer().getThreeScene();
 const world = runtimeScene.__CannonJS.world;
@@ -77,7 +77,7 @@ gdjs.evtsExt__Physics3D__CreateWall.eventsList0 = function(runtimeScene, eventsF
 {
 
 
-gdjs.evtsExt__Physics3D__CreateWall.userFunc0x13966e0(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Physics3D__CreateWall.userFunc0x12e8f90(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__PointLights__SetColor !== "undefined") {
 gdjs.evtsExt__PointLights__SetColor = {};
 
 
-gdjs.evtsExt__PointLights__SetColor.userFunc0x85eba0 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__PointLights__SetColor.userFunc0x9dc208 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 if (runtimeScene._pointLightsExtension.pointLights.has(eventsFunctionContext.getArgument("Identifier"))) {
     const rgbColor = gdjs.rgbOrHexToRGBColor(eventsFunctionContext.getArgument("Color"));
@@ -23,7 +23,7 @@ gdjs.evtsExt__PointLights__SetColor.eventsList0 = function(runtimeScene, eventsF
 {
 
 
-gdjs.evtsExt__PointLights__SetColor.userFunc0x85eba0(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__PointLights__SetColor.userFunc0x9dc208(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

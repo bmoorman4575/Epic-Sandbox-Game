@@ -9,7 +9,7 @@ gdjs.evtsExt__Shadows__ReceiveShadow = {};
 gdjs.evtsExt__Shadows__ReceiveShadow.GDObjectObjects1= [];
 
 
-gdjs.evtsExt__Shadows__ReceiveShadow.userFunc0xf949b8 = function GDJSInlineCode(runtimeScene, objects, eventsFunctionContext) {
+gdjs.evtsExt__Shadows__ReceiveShadow.userFunc0x144a9d8 = function GDJSInlineCode(runtimeScene, objects, eventsFunctionContext) {
 "use strict";
 objects[0].get3DRendererObject().traverse((node) => {
     if (node instanceof THREE.Mesh && node.isMesh) {
@@ -25,7 +25,7 @@ gdjs.copyArray(eventsFunctionContext.getObjects("Object"), gdjs.evtsExt__Shadows
 
 var objects = [];
 objects.push.apply(objects,gdjs.evtsExt__Shadows__ReceiveShadow.GDObjectObjects1);
-gdjs.evtsExt__Shadows__ReceiveShadow.userFunc0xf949b8(runtimeScene, objects, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Shadows__ReceiveShadow.userFunc0x144a9d8(runtimeScene, objects, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

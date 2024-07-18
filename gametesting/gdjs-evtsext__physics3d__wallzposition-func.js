@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__Physics3D__WallZPosition !== "undefined") {
 gdjs.evtsExt__Physics3D__WallZPosition = {};
 
 
-gdjs.evtsExt__Physics3D__WallZPosition.userFunc0x7ed130 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__Physics3D__WallZPosition.userFunc0x12e2060 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 const identifier = eventsFunctionContext.getArgument("Identifier");
 
@@ -25,7 +25,7 @@ gdjs.evtsExt__Physics3D__WallZPosition.eventsList0 = function(runtimeScene, even
 {
 
 
-gdjs.evtsExt__Physics3D__WallZPosition.userFunc0x7ed130(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Physics3D__WallZPosition.userFunc0x12e2060(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

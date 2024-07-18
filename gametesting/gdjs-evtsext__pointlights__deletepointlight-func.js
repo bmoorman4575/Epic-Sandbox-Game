@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__PointLights__DeletePointLight !== "undefined") {
 gdjs.evtsExt__PointLights__DeletePointLight = {};
 
 
-gdjs.evtsExt__PointLights__DeletePointLight.userFunc0xf949b8 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__PointLights__DeletePointLight.userFunc0x144a9d8 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 if (runtimeScene._pointLightsExtension.pointLights.has(eventsFunctionContext.getArgument("Identifier"))) {
     runtimeScene.getLayer('').getRenderer().getThreeScene().remove(runtimeScene._pointLightsExtension.pointLights.get(eventsFunctionContext.getArgument("Identifier")).pointLight);
@@ -32,7 +32,7 @@ gdjs.evtsExt__PointLights__DeletePointLight.eventsList0 = function(runtimeScene,
 {
 
 
-gdjs.evtsExt__PointLights__DeletePointLight.userFunc0xf949b8(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__PointLights__DeletePointLight.userFunc0x144a9d8(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__PointLights__SetDistance !== "undefined") {
 gdjs.evtsExt__PointLights__SetDistance = {};
 
 
-gdjs.evtsExt__PointLights__SetDistance.userFunc0x87e388 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__PointLights__SetDistance.userFunc0x21d8468 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 if (runtimeScene._pointLightsExtension.pointLights.has(eventsFunctionContext.getArgument("Identifier"))) {
     runtimeScene._pointLightsExtension.pointLights.get(eventsFunctionContext.getArgument("Identifier")).pointLight.distance = eventsFunctionContext.getArgument("Value");
@@ -19,7 +19,7 @@ gdjs.evtsExt__PointLights__SetDistance.eventsList0 = function(runtimeScene, even
 {
 
 
-gdjs.evtsExt__PointLights__SetDistance.userFunc0x87e388(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__PointLights__SetDistance.userFunc0x21d8468(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

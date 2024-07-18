@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__PointLights__SetPositionZ !== "undefined") {
 gdjs.evtsExt__PointLights__SetPositionZ = {};
 
 
-gdjs.evtsExt__PointLights__SetPositionZ.userFunc0x8e04f8 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__PointLights__SetPositionZ.userFunc0x1871d80 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 if (runtimeScene._pointLightsExtension.pointLights.has(eventsFunctionContext.getArgument("Identifier"))) {
     runtimeScene._pointLightsExtension.pointLights.get(eventsFunctionContext.getArgument("Identifier")).pointLight.position.z = eventsFunctionContext.getArgument("Value");
@@ -19,7 +19,7 @@ gdjs.evtsExt__PointLights__SetPositionZ.eventsList0 = function(runtimeScene, eve
 {
 
 
-gdjs.evtsExt__PointLights__SetPositionZ.userFunc0x8e04f8(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__PointLights__SetPositionZ.userFunc0x1871d80(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

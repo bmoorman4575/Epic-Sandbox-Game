@@ -1,32 +1,50 @@
 
-if (typeof gdjs.evtsExt__PointLights__SetPosition !== "undefined") {
-  gdjs.evtsExt__PointLights__SetPosition.registeredGdjsCallbacks.forEach(callback =>
+if (typeof gdjs.evtsExt__VR__camerapoint !== "undefined") {
+  gdjs.evtsExt__VR__camerapoint.registeredGdjsCallbacks.forEach(callback =>
     gdjs._unregisterCallback(callback)
   );
 }
 
-gdjs.evtsExt__PointLights__SetPosition = {};
+gdjs.evtsExt__VR__camerapoint = {};
 
 
-gdjs.evtsExt__PointLights__SetPosition.userFunc0x20981c0 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__VR__camerapoint.userFunc0x10fdd88 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
-if (runtimeScene._pointLightsExtension.pointLights.has(eventsFunctionContext.getArgument("Identifier"))) {
-    runtimeScene._pointLightsExtension.pointLights.get(eventsFunctionContext.getArgument("Identifier")).pointLight.position.set(eventsFunctionContext.getArgument("PositionX"), eventsFunctionContext.getArgument("PositionY"), eventsFunctionContext.getArgument("PositionZ"));
+// Define a function to rotate the camera
+function rotateCamera(camera, angle) {
+    camera.rotation.y += THREE.Math.degToRad(angle);
 }
+
+// Find the camera in your Three.js renderer
+const camera = renderer.xr.getCamera(); // Adjust this line if your camera is accessed differently
+
+// Rotate the camera by 30 degrees
+rotateCamera(camera, 30);
+
 };
-gdjs.evtsExt__PointLights__SetPosition.eventsList0 = function(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__VR__camerapoint.eventsList0 = function(runtimeScene, eventsFunctionContext) {
 
 {
 
 
-gdjs.evtsExt__PointLights__SetPosition.userFunc0x20981c0(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+let isConditionTrue_0 = false;
+{
+}
+
+}
+
+
+{
+
+
+gdjs.evtsExt__VR__camerapoint.userFunc0x10fdd88(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 
 
 };
 
-gdjs.evtsExt__PointLights__SetPosition.func = function(runtimeScene, Identifier, PositionX, PositionY, PositionZ, parentEventsFunctionContext) {
+gdjs.evtsExt__VR__camerapoint.func = function(runtimeScene, parentEventsFunctionContext) {
 var eventsFunctionContext = {
   _objectsMap: {
 },
@@ -34,8 +52,8 @@ var eventsFunctionContext = {
 },
   _behaviorNamesMap: {
 },
-  globalVariablesForExtension: runtimeScene.getGame().getVariablesForExtension("PointLights"),
-  sceneVariablesForExtension: runtimeScene.getScene().getVariablesForExtension("PointLights"),
+  globalVariablesForExtension: runtimeScene.getGame().getVariablesForExtension("VR"),
+  sceneVariablesForExtension: runtimeScene.getScene().getVariablesForExtension("VR"),
   localVariables: [],
   getObjects: function(objectName) {
     return eventsFunctionContext._objectArraysMap[objectName] || [];
@@ -74,19 +92,15 @@ parentEventsFunctionContext.getInstancesCountOnScene(objectName) :
     return runtimeScene.getLayer(layerName);
   },
   getArgument: function(argName) {
-if (argName === "Identifier") return Identifier;
-if (argName === "PositionX") return PositionX;
-if (argName === "PositionY") return PositionY;
-if (argName === "PositionZ") return PositionZ;
     return "";
   },
   getOnceTriggers: function() { return runtimeScene.getOnceTriggers(); }
 };
 
 
-gdjs.evtsExt__PointLights__SetPosition.eventsList0(runtimeScene, eventsFunctionContext);
+gdjs.evtsExt__VR__camerapoint.eventsList0(runtimeScene, eventsFunctionContext);
 
 return;
 }
 
-gdjs.evtsExt__PointLights__SetPosition.registeredGdjsCallbacks = [];
+gdjs.evtsExt__VR__camerapoint.registeredGdjsCallbacks = [];

@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__Physics3D__SetWallRotationY !== "undefined") {
 gdjs.evtsExt__Physics3D__SetWallRotationY = {};
 
 
-gdjs.evtsExt__Physics3D__SetWallRotationY.userFunc0x7ed130 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__Physics3D__SetWallRotationY.userFunc0x1241a70 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 const identifier = eventsFunctionContext.getArgument("Identifier");
 const angleY = eventsFunctionContext.getArgument("RotationY") * (Math.PI / 180);
@@ -38,7 +38,7 @@ gdjs.evtsExt__Physics3D__SetWallRotationY.eventsList0 = function(runtimeScene, e
 {
 
 
-gdjs.evtsExt__Physics3D__SetWallRotationY.userFunc0x7ed130(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Physics3D__SetWallRotationY.userFunc0x1241a70(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

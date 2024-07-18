@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__VR__onFirstSceneLoaded !== "undefined") {
 gdjs.evtsExt__VR__onFirstSceneLoaded = {};
 
 
-gdjs.evtsExt__VR__onFirstSceneLoaded.userFunc0xa0dbf0 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__VR__onFirstSceneLoaded.userFunc0x10fdd88 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 class VRButton {
 
@@ -302,7 +302,7 @@ gdjs.evtsExt__VR__onFirstSceneLoaded.eventsList0 = function(runtimeScene, events
 {
 
 
-gdjs.evtsExt__VR__onFirstSceneLoaded.userFunc0xa0dbf0(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__VR__onFirstSceneLoaded.userFunc0x10fdd88(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

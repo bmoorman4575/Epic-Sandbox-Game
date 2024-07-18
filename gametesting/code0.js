@@ -11,7 +11,7 @@ gdjs.Credits_32_47_32loading_32base_32game_32instructionsCode.GDcreditsObjects2=
 gdjs.Credits_32_47_32loading_32base_32game_32instructionsCode.GDcreditsObjects3= [];
 
 
-gdjs.Credits_32_47_32loading_32base_32game_32instructionsCode.asyncCallback23324972 = function (runtimeScene, asyncObjectsList) {
+gdjs.Credits_32_47_32loading_32base_32game_32instructionsCode.asyncCallback24025972 = function (runtimeScene, asyncObjectsList) {
 asyncObjectsList.restoreLocalVariablesContainers(gdjs.Credits_32_47_32loading_32base_32game_32instructionsCode.localVariables);
 {gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "menu", false);
 }gdjs.Credits_32_47_32loading_32base_32game_32instructionsCode.localVariables.length = 0;
@@ -26,14 +26,14 @@ const parentAsyncObjectsList = asyncObjectsList;
 {
 const asyncObjectsList = gdjs.LongLivedObjectsList.from(parentAsyncObjectsList);
 asyncObjectsList.backupLocalVariablesContainers(gdjs.Credits_32_47_32loading_32base_32game_32instructionsCode.localVariables);
-runtimeScene.getAsyncTasksManager().addTask(gdjs.evtTools.runtimeScene.wait(13), (runtimeScene) => (gdjs.Credits_32_47_32loading_32base_32game_32instructionsCode.asyncCallback23324972(runtimeScene, asyncObjectsList)));
+runtimeScene.getAsyncTasksManager().addTask(gdjs.evtTools.runtimeScene.wait(13), (runtimeScene) => (gdjs.Credits_32_47_32loading_32base_32game_32instructionsCode.asyncCallback24025972(runtimeScene, asyncObjectsList)));
 }
 }
 
 }
 
 
-};gdjs.Credits_32_47_32loading_32base_32game_32instructionsCode.asyncCallback23324524 = function (runtimeScene, asyncObjectsList) {
+};gdjs.Credits_32_47_32loading_32base_32game_32instructionsCode.asyncCallback24025524 = function (runtimeScene, asyncObjectsList) {
 asyncObjectsList.restoreLocalVariablesContainers(gdjs.Credits_32_47_32loading_32base_32game_32instructionsCode.localVariables);
 gdjs.copyArray(runtimeScene.getObjects("Debugtxt"), gdjs.Credits_32_47_32loading_32base_32game_32instructionsCode.GDDebugtxtObjects2);
 gdjs.copyArray(runtimeScene.getObjects("credits"), gdjs.Credits_32_47_32loading_32base_32game_32instructionsCode.GDcreditsObjects2);
@@ -57,7 +57,7 @@ gdjs.Credits_32_47_32loading_32base_32game_32instructionsCode.eventsList1 = func
 {
 const asyncObjectsList = new gdjs.LongLivedObjectsList();
 asyncObjectsList.backupLocalVariablesContainers(gdjs.Credits_32_47_32loading_32base_32game_32instructionsCode.localVariables);
-runtimeScene.getAsyncTasksManager().addTask(gdjs.evtTools.runtimeScene.wait(3), (runtimeScene) => (gdjs.Credits_32_47_32loading_32base_32game_32instructionsCode.asyncCallback23324524(runtimeScene, asyncObjectsList)));
+runtimeScene.getAsyncTasksManager().addTask(gdjs.evtTools.runtimeScene.wait(3), (runtimeScene) => (gdjs.Credits_32_47_32loading_32base_32game_32instructionsCode.asyncCallback24025524(runtimeScene, asyncObjectsList)));
 }
 }
 

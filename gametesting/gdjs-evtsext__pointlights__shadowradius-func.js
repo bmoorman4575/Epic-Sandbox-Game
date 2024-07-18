@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__PointLights__ShadowRadius !== "undefined") {
 gdjs.evtsExt__PointLights__ShadowRadius = {};
 
 
-gdjs.evtsExt__PointLights__ShadowRadius.userFunc0x8ad108 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__PointLights__ShadowRadius.userFunc0x20b5978 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 if (runtimeScene._pointLightsExtension.pointLights.has(eventsFunctionContext.getArgument("Identifier"))) {
   eventsFunctionContext.returnValue = runtimeScene._pointLightsExtension.pointLights.get(eventsFunctionContext.getArgument("Identifier")).pointLight.shadow.radius;
@@ -21,7 +21,7 @@ gdjs.evtsExt__PointLights__ShadowRadius.eventsList0 = function(runtimeScene, eve
 {
 
 
-gdjs.evtsExt__PointLights__ShadowRadius.userFunc0x8ad108(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__PointLights__ShadowRadius.userFunc0x20b5978(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

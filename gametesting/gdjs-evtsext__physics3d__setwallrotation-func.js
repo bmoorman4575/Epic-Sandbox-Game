@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__Physics3D__SetWallRotation !== "undefined") {
 gdjs.evtsExt__Physics3D__SetWallRotation = {};
 
 
-gdjs.evtsExt__Physics3D__SetWallRotation.userFunc0x980610 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__Physics3D__SetWallRotation.userFunc0x12f7bd0 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 const identifier = eventsFunctionContext.getArgument("Identifier");
 
@@ -36,7 +36,7 @@ gdjs.evtsExt__Physics3D__SetWallRotation.eventsList0 = function(runtimeScene, ev
 {
 
 
-gdjs.evtsExt__Physics3D__SetWallRotation.userFunc0x980610(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Physics3D__SetWallRotation.userFunc0x12f7bd0(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

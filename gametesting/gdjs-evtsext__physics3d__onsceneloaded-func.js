@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__Physics3D__onSceneLoaded !== "undefined") {
 gdjs.evtsExt__Physics3D__onSceneLoaded = {};
 
 
-gdjs.evtsExt__Physics3D__onSceneLoaded.userFunc0x13966e0 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__Physics3D__onSceneLoaded.userFunc0x12e8f90 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 /*
  * Copyright (c) 2015 cannon.js Authors
@@ -13699,7 +13699,7 @@ World.prototype.clearForces = function(){
 });
 
 };
-gdjs.evtsExt__Physics3D__onSceneLoaded.userFunc0x1004da8 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__Physics3D__onSceneLoaded.userFunc0x12e8870 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 runtimeScene.__physics3D = {};
 runtimeScene.__physics3D.colliders = new Map();
@@ -13762,7 +13762,7 @@ gdjs.evtsExt__Physics3D__onSceneLoaded.eventsList0 = function(runtimeScene, even
 {
 
 
-gdjs.evtsExt__Physics3D__onSceneLoaded.userFunc0x13966e0(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Physics3D__onSceneLoaded.userFunc0x12e8f90(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 
@@ -13770,7 +13770,7 @@ gdjs.evtsExt__Physics3D__onSceneLoaded.userFunc0x13966e0(runtimeScene, typeof ev
 {
 
 
-gdjs.evtsExt__Physics3D__onSceneLoaded.userFunc0x1004da8(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Physics3D__onSceneLoaded.userFunc0x12e8870(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

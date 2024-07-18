@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__VR__EndVR !== "undefined") {
 gdjs.evtsExt__VR__EndVR = {};
 
 
-gdjs.evtsExt__VR__EndVR.userFunc0xa0dbf0 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__VR__EndVR.userFunc0x10fdd88 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 const threeRenderer = runtimeScene.getGame().getRenderer().getThreeRenderer();
 threeRenderer.xr.getSession().end();
@@ -19,7 +19,7 @@ gdjs.evtsExt__VR__EndVR.eventsList0 = function(runtimeScene, eventsFunctionConte
 {
 
 
-gdjs.evtsExt__VR__EndVR.userFunc0xa0dbf0(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__VR__EndVR.userFunc0x10fdd88(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

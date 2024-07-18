@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__Physics3D__RayCastWall !== "undefined") {
 gdjs.evtsExt__Physics3D__RayCastWall = {};
 
 
-gdjs.evtsExt__Physics3D__RayCastWall.userFunc0x13cb390 = function GDJSInlineCode(runtimeScene, objects, eventsFunctionContext) {
+gdjs.evtsExt__Physics3D__RayCastWall.userFunc0x1241290 = function GDJSInlineCode(runtimeScene, objects, eventsFunctionContext) {
 "use strict";
 const world = runtimeScene.__CannonJS.world;
 
@@ -45,7 +45,7 @@ gdjs.evtsExt__Physics3D__RayCastWall.eventsList0 = function(runtimeScene, events
 
 
 var objects = [];
-gdjs.evtsExt__Physics3D__RayCastWall.userFunc0x13cb390(runtimeScene, objects, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Physics3D__RayCastWall.userFunc0x1241290(runtimeScene, objects, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

@@ -9,7 +9,7 @@ gdjs.evtsExt__Physics3D__RayCastBody = {};
 gdjs.evtsExt__Physics3D__RayCastBody.GDObjectObjects1= [];
 
 
-gdjs.evtsExt__Physics3D__RayCastBody.userFunc0x13cb390 = function GDJSInlineCode(runtimeScene, objects, eventsFunctionContext) {
+gdjs.evtsExt__Physics3D__RayCastBody.userFunc0x26ac220 = function GDJSInlineCode(runtimeScene, objects, eventsFunctionContext) {
 "use strict";
 const world = runtimeScene.__CannonJS.world;
 
@@ -44,7 +44,7 @@ gdjs.copyArray(eventsFunctionContext.getObjects("Object"), gdjs.evtsExt__Physics
 
 var objects = [];
 objects.push.apply(objects,gdjs.evtsExt__Physics3D__RayCastBody.GDObjectObjects1);
-gdjs.evtsExt__Physics3D__RayCastBody.userFunc0x13cb390(runtimeScene, objects, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Physics3D__RayCastBody.userFunc0x26ac220(runtimeScene, objects, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

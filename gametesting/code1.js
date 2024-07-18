@@ -65,7 +65,7 @@ gdjs.menuCode.eventsList0 = function(runtimeScene) {
 
 let isConditionTrue_0 = false;
 isConditionTrue_0 = false;
-{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(23341268);
+{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(24042268);
 }
 if (isConditionTrue_0) {
 gdjs.menuCode.GDjoingamefrbuttonObjects2.length = 0;
@@ -133,7 +133,7 @@ for (var i = 0, k = 0, l = gdjs.menuCode.GDp2pcodeinputObjects4.length;i<l;++i) 
 gdjs.menuCode.GDp2pcodeinputObjects4.length = k;
 if (isConditionTrue_0) {
 isConditionTrue_0 = false;
-{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(23349156);
+{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(24050156);
 }
 }
 if (isConditionTrue_0) {
@@ -288,7 +288,7 @@ isConditionTrue_0 = false;
 isConditionTrue_0 = gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSecondsOrNaN(runtimeScene, "waittimeout") >= 20;
 if (isConditionTrue_0) {
 isConditionTrue_0 = false;
-{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(23362556);
+{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(24063556);
 }
 }
 if (isConditionTrue_0) {
@@ -324,7 +324,7 @@ isConditionTrue_0 = false;
 isConditionTrue_0 = gdjs.evtTools.variable.getVariableString(runtimeScene.getScene().getVariables().getFromIndex(2)) == "brokerserver";
 if (isConditionTrue_0) {
 isConditionTrue_0 = false;
-{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(23365556);
+{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(24066556);
 }
 }
 if (isConditionTrue_0) {
@@ -354,7 +354,7 @@ isConditionTrue_0 = false;
 isConditionTrue_0 = gdjs.evtTools.p2p.isReady();
 if (isConditionTrue_0) {
 isConditionTrue_0 = false;
-{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(23368820);
+{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(24069820);
 }
 }
 }
@@ -379,7 +379,7 @@ isConditionTrue_0 = false;
 isConditionTrue_0 = gdjs.evtTools.variable.getVariableString(runtimeScene.getScene().getVariables().getFromIndex(2)) == "attemptconnection";
 if (isConditionTrue_0) {
 isConditionTrue_0 = false;
-{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(23371356);
+{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(24072356);
 }
 }
 if (isConditionTrue_0) {
@@ -403,7 +403,7 @@ isConditionTrue_0 = false;
 isConditionTrue_0 = gdjs.evtTools.p2p.onEvent("player", false);
 if (isConditionTrue_0) {
 isConditionTrue_0 = false;
-{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(23373564);
+{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(24074564);
 }
 }
 if (isConditionTrue_0) {
@@ -419,7 +419,7 @@ gdjs.copyArray(runtimeScene.getObjects("p2pinformation"), gdjs.menuCode.GDp2pinf
 }
 
 
-};gdjs.menuCode.asyncCallback23379164 = function (runtimeScene, asyncObjectsList) {
+};gdjs.menuCode.asyncCallback24080164 = function (runtimeScene, asyncObjectsList) {
 asyncObjectsList.restoreLocalVariablesContainers(gdjs.menuCode.localVariables);
 {gdjs.evtTools.runtimeScene.prioritizeLoadingOfScene(runtimeScene, "GAME");
 }gdjs.menuCode.localVariables.length = 0;
@@ -433,14 +433,14 @@ gdjs.menuCode.eventsList7 = function(runtimeScene) {
 {
 const asyncObjectsList = new gdjs.LongLivedObjectsList();
 asyncObjectsList.backupLocalVariablesContainers(gdjs.menuCode.localVariables);
-runtimeScene.getAsyncTasksManager().addTask(gdjs.evtTools.runtimeScene.wait(0.5), (runtimeScene) => (gdjs.menuCode.asyncCallback23379164(runtimeScene, asyncObjectsList)));
+runtimeScene.getAsyncTasksManager().addTask(gdjs.evtTools.runtimeScene.wait(0.5), (runtimeScene) => (gdjs.menuCode.asyncCallback24080164(runtimeScene, asyncObjectsList)));
 }
 }
 
 }
 
 
-};gdjs.menuCode.asyncCallback23383452 = function (runtimeScene, asyncObjectsList) {
+};gdjs.menuCode.asyncCallback24084452 = function (runtimeScene, asyncObjectsList) {
 asyncObjectsList.restoreLocalVariablesContainers(gdjs.menuCode.localVariables);
 {gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "GAME", false);
 }gdjs.menuCode.localVariables.length = 0;
@@ -454,7 +454,7 @@ gdjs.menuCode.eventsList8 = function(runtimeScene) {
 {
 const asyncObjectsList = new gdjs.LongLivedObjectsList();
 asyncObjectsList.backupLocalVariablesContainers(gdjs.menuCode.localVariables);
-runtimeScene.getAsyncTasksManager().addTask(gdjs.evtTools.runtimeScene.wait(1), (runtimeScene) => (gdjs.menuCode.asyncCallback23383452(runtimeScene, asyncObjectsList)));
+runtimeScene.getAsyncTasksManager().addTask(gdjs.evtTools.runtimeScene.wait(1), (runtimeScene) => (gdjs.menuCode.asyncCallback24084452(runtimeScene, asyncObjectsList)));
 }
 }
 
@@ -471,7 +471,7 @@ isConditionTrue_0 = false;
 isConditionTrue_0 = gdjs.evtTools.variable.getVariableString(runtimeScene.getScene().getVariables().getFromIndex(2)) == "loading scene";
 if (isConditionTrue_0) {
 isConditionTrue_0 = false;
-{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(23376292);
+{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(24077292);
 }
 }
 if (isConditionTrue_0) {
@@ -523,7 +523,7 @@ isConditionTrue_0 = false;
 isConditionTrue_0 = gdjs.evtTools.runtimeScene.areSceneAssetsLoaded(runtimeScene, "GAME");
 if (isConditionTrue_0) {
 isConditionTrue_0 = false;
-{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(23382444);
+{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(24083444);
 }
 }
 }
@@ -705,6 +705,16 @@ if (isConditionTrue_0) {
 
 
 gdjs.menuCode.eventsList13(runtimeScene);
+}
+
+
+{
+
+
+let isConditionTrue_0 = false;
+{
+}
+
 }
 
 

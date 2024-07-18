@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__PointLights__onSceneLoaded !== "undefined") {
 gdjs.evtsExt__PointLights__onSceneLoaded = {};
 
 
-gdjs.evtsExt__PointLights__onSceneLoaded.userFunc0xf949b8 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__PointLights__onSceneLoaded.userFunc0x144a9d8 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 runtimeScene._pointLightsExtension = {};
 runtimeScene._pointLightsExtension.pointLights = new Map();
@@ -20,7 +20,7 @@ gdjs.evtsExt__PointLights__onSceneLoaded.eventsList0 = function(runtimeScene, ev
 {
 
 
-gdjs.evtsExt__PointLights__onSceneLoaded.userFunc0xf949b8(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__PointLights__onSceneLoaded.userFunc0x144a9d8(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

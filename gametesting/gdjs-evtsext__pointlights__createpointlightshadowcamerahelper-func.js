@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__PointLights__CreatePointLightShadowCameraHelper !== "un
 gdjs.evtsExt__PointLights__CreatePointLightShadowCameraHelper = {};
 
 
-gdjs.evtsExt__PointLights__CreatePointLightShadowCameraHelper.userFunc0x12f0ad0 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__PointLights__CreatePointLightShadowCameraHelper.userFunc0x1c5c1c0 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 if (runtimeScene._pointLightsExtension.pointLights.has(eventsFunctionContext.getArgument("Identifier"))) {
     const tempObj = runtimeScene._pointLightsExtension.pointLights.get(eventsFunctionContext.getArgument("Identifier"));
@@ -24,7 +24,7 @@ gdjs.evtsExt__PointLights__CreatePointLightShadowCameraHelper.eventsList0 = func
 {
 
 
-gdjs.evtsExt__PointLights__CreatePointLightShadowCameraHelper.userFunc0x12f0ad0(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__PointLights__CreatePointLightShadowCameraHelper.userFunc0x1c5c1c0(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

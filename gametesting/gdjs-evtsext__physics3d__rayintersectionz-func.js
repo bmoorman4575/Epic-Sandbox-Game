@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__Physics3D__RayIntersectionZ !== "undefined") {
 gdjs.evtsExt__Physics3D__RayIntersectionZ = {};
 
 
-gdjs.evtsExt__Physics3D__RayIntersectionZ.userFunc0x1213978 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__Physics3D__RayIntersectionZ.userFunc0x26ac220 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 const ray = runtimeScene.__physics3D.ray;
 eventsFunctionContext.returnValue = ray.hitPointWorld.z;
@@ -18,7 +18,7 @@ gdjs.evtsExt__Physics3D__RayIntersectionZ.eventsList0 = function(runtimeScene, e
 {
 
 
-gdjs.evtsExt__Physics3D__RayIntersectionZ.userFunc0x1213978(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Physics3D__RayIntersectionZ.userFunc0x26ac220(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

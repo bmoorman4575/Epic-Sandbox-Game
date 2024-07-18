@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__AdvancedP2PEventHandling__DissmissEvent !== "undefined"
 gdjs.evtsExt__AdvancedP2PEventHandling__DissmissEvent = {};
 
 
-gdjs.evtsExt__AdvancedP2PEventHandling__DissmissEvent.userFunc0x9cda90 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__AdvancedP2PEventHandling__DissmissEvent.userFunc0x893768 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 if (!gdjs.evtTools.p2p) return;
 if (gdjs.evtTools.p2p.getEvent)
@@ -27,7 +27,7 @@ gdjs.evtsExt__AdvancedP2PEventHandling__DissmissEvent.eventsList0 = function(run
 {
 
 
-gdjs.evtsExt__AdvancedP2PEventHandling__DissmissEvent.userFunc0x9cda90(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__AdvancedP2PEventHandling__DissmissEvent.userFunc0x893768(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 
