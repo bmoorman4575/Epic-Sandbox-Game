@@ -6,7 +6,7 @@
   "orientation": "landscape",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#272626",
+  "background_color": "#006eff",
   "categories": [
     "games",
     "entertainment"
