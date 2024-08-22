@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__Raycaster3D__DefineHelperClasses !== "undefined") {
 gdjs.evtsExt__Raycaster3D__DefineHelperClasses = {};
 
 
-gdjs.evtsExt__Raycaster3D__DefineHelperClasses.userFunc0x141b8c0 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__Raycaster3D__DefineHelperClasses.userFunc0x1867e68 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 gdjs.__raycaster3DExtension = gdjs.__raycaster3DExtension || {};
 
@@ -184,7 +184,7 @@ gdjs.evtsExt__Raycaster3D__DefineHelperClasses.eventsList0 = function(runtimeSce
 {
 
 
-gdjs.evtsExt__Raycaster3D__DefineHelperClasses.userFunc0x141b8c0(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Raycaster3D__DefineHelperClasses.userFunc0x1867e68(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__Shadows__ShadowMap !== "undefined") {
 gdjs.evtsExt__Shadows__ShadowMap = {};
 
 
-gdjs.evtsExt__Shadows__ShadowMap.userFunc0x144a9d8 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__Shadows__ShadowMap.userFunc0xfc1a30 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 switch (eventsFunctionContext.getArgument("ShadowMapType")) {
     case 'Basic':
@@ -35,7 +35,7 @@ gdjs.evtsExt__Shadows__ShadowMap.eventsList0 = function(runtimeScene, eventsFunc
 {
 
 
-gdjs.evtsExt__Shadows__ShadowMap.userFunc0x144a9d8(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Shadows__ShadowMap.userFunc0xfc1a30(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

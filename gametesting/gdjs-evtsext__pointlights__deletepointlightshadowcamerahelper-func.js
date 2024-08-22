@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__PointLights__DeletePointLightShadowCameraHelper !== "un
 gdjs.evtsExt__PointLights__DeletePointLightShadowCameraHelper = {};
 
 
-gdjs.evtsExt__PointLights__DeletePointLightShadowCameraHelper.userFunc0x9dc208 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__PointLights__DeletePointLightShadowCameraHelper.userFunc0x1867e68 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 if (runtimeScene._pointLightsExtension.pointLightShadowCameraHelpers.has(eventsFunctionContext.getArgument("Identifier"))) {
     runtimeScene.getLayer('').getRenderer().getThreeScene().remove(runtimeScene._pointLightsExtension.pointLightShadowCameraHelpers.get(eventsFunctionContext.getArgument("Identifier")).cameraHelper);
@@ -20,7 +20,7 @@ gdjs.evtsExt__PointLights__DeletePointLightShadowCameraHelper.eventsList0 = func
 {
 
 
-gdjs.evtsExt__PointLights__DeletePointLightShadowCameraHelper.userFunc0x9dc208(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__PointLights__DeletePointLightShadowCameraHelper.userFunc0x1867e68(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

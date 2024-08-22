@@ -10,7 +10,7 @@ gdjs.evtsExt__gameruntime__change_jacket_color.GDObjectObjects1= [];
 gdjs.evtsExt__gameruntime__change_jacket_color.GDObjectObjects2= [];
 
 
-gdjs.evtsExt__gameruntime__change_jacket_color.userFunc0x1451f40 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__gameruntime__change_jacket_color.userFunc0xf260f0 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 objects[0].get3DRendererObject().traverse((node) => {
     if (node instanceof THREE.Mesh && node.isMesh) {
@@ -33,7 +33,7 @@ let isConditionTrue_0 = false;
 {
 
 
-gdjs.evtsExt__gameruntime__change_jacket_color.userFunc0x1451f40(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__gameruntime__change_jacket_color.userFunc0xf260f0(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

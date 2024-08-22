@@ -72,7 +72,7 @@ gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.doStepPreEvents
 gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.doStepPreEventsContext.GDObjectObjects1= [];
 
 
-gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.doStepPreEventsContext.userFunc0x153f150 = function GDJSInlineCode(runtimeScene, objects, eventsFunctionContext) {
+gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.doStepPreEventsContext.userFunc0xc80608 = function GDJSInlineCode(runtimeScene, objects, eventsFunctionContext) {
 "use strict";
 const boxBody = objects[0].collider; 
 
@@ -95,7 +95,7 @@ gdjs.copyArray(eventsFunctionContext.getObjects("Object"), gdjs.evtsExt__Physics
 
 var objects = [];
 objects.push.apply(objects,gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.doStepPreEventsContext.GDObjectObjects1);
-gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.doStepPreEventsContext.userFunc0x153f150(runtimeScene, objects, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.doStepPreEventsContext.userFunc0xc80608(runtimeScene, objects, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 
@@ -174,7 +174,7 @@ gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.MovePlayerConte
 gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.MovePlayerContext.GDObjectObjects1= [];
 
 
-gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.MovePlayerContext.userFunc0x142cb70 = function GDJSInlineCode(runtimeScene, objects, eventsFunctionContext) {
+gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.MovePlayerContext.userFunc0xc80608 = function GDJSInlineCode(runtimeScene, objects, eventsFunctionContext) {
 "use strict";
 const boxBody = objects[0].collider;
 
@@ -209,7 +209,7 @@ gdjs.copyArray(eventsFunctionContext.getObjects("Object"), gdjs.evtsExt__Physics
 
 var objects = [];
 objects.push.apply(objects,gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.MovePlayerContext.GDObjectObjects1);
-gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.MovePlayerContext.userFunc0x142cb70(runtimeScene, objects, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.MovePlayerContext.userFunc0xc80608(runtimeScene, objects, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 
@@ -290,7 +290,7 @@ gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.JumpContext = {
 gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.JumpContext.GDObjectObjects1= [];
 
 
-gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.JumpContext.userFunc0x14d4140 = function GDJSInlineCode(runtimeScene, objects, eventsFunctionContext) {
+gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.JumpContext.userFunc0xc94de0 = function GDJSInlineCode(runtimeScene, objects, eventsFunctionContext) {
 "use strict";
 const boxBody = objects[0].collider;
 const moveDistance = eventsFunctionContext.getArgument("Speed"); 
@@ -306,7 +306,7 @@ gdjs.copyArray(eventsFunctionContext.getObjects("Object"), gdjs.evtsExt__Physics
 
 var objects = [];
 objects.push.apply(objects,gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.JumpContext.GDObjectObjects1);
-gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.JumpContext.userFunc0x14d4140(runtimeScene, objects, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Physics3D__PhysicsControl.PhysicsControl.prototype.JumpContext.userFunc0xc94de0(runtimeScene, objects, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

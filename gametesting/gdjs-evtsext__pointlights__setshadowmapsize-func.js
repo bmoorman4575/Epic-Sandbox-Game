@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__PointLights__SetShadowMapSize !== "undefined") {
 gdjs.evtsExt__PointLights__SetShadowMapSize = {};
 
 
-gdjs.evtsExt__PointLights__SetShadowMapSize.userFunc0x1451f40 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__PointLights__SetShadowMapSize.userFunc0x1085970 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 if (runtimeScene._pointLightsExtension.pointLights.has(eventsFunctionContext.getArgument("Identifier"))) {
     switch (eventsFunctionContext.getArgument("ShadowMapSize")) {
@@ -45,7 +45,7 @@ gdjs.evtsExt__PointLights__SetShadowMapSize.eventsList0 = function(runtimeScene,
 {
 
 
-gdjs.evtsExt__PointLights__SetShadowMapSize.userFunc0x1451f40(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__PointLights__SetShadowMapSize.userFunc0x1085970(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

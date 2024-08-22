@@ -8,47 +8,47 @@ if (typeof gdjs.evtsExt__ParticleEmitter3D__DefineHelperClasses !== "undefined")
 gdjs.evtsExt__ParticleEmitter3D__DefineHelperClasses = {};
 
 
-gdjs.evtsExt__ParticleEmitter3D__DefineHelperClasses.userFunc0x1b3e028 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__ParticleEmitter3D__DefineHelperClasses.userFunc0xde8d30 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
-gdjs.__particleEmmiter3DExtension = gdjs.__particleEmmiter3DExtension || {};
+if (gdjs.__particleEmmiter3DExtension) {
+    return;
+}
 
 class ParticleEmitter3DRenderer extends gdjs.CustomRuntimeObject3DRenderer {
     constructor(
-      object,
-      instanceContainer,
-      parent
+        object,
+        instanceContainer,
+        parent
     ) {
         super(object, instanceContainer, parent);
     }
 
     _updateThreeGroup() {
-      const threeObject3D = this.get3DRendererObject();
+        const threeObject3D = this.get3DRendererObject();
 
-      threeObject3D.rotation.set(
-        gdjs.toRad(this._object.getRotationX()),
-        gdjs.toRad(this._object.getRotationY()),
-        -gdjs.toRad(this._object.angle)
-      );
+        threeObject3D.rotation.set(
+            gdjs.toRad(this._object.getRotationX()),
+            gdjs.toRad(this._object.getRotationY()),
+            -gdjs.toRad(this._object.angle)
+        );
 
-      threeObject3D.position.set(
-        this._object.getX(),
-        -this._object.getY(),
-        this._object.getZ()
-      );
+        threeObject3D.position.set(
+            this._object.getX(),
+            -this._object.getY(),
+            this._object.getZ()
+        );
 
-      threeObject3D.scale.set(
-        this._object.isFlippedX() ? -1 : 1,
-        this._object.isFlippedY() ? -1 : 1,
-        this._object.isFlippedZ() ? -1 : 1
-      );
+        threeObject3D.scale.set(
+            this._object.isFlippedX() ? -1 : 1,
+            this._object.isFlippedY() ? -1 : 1,
+            this._object.isFlippedZ() ? -1 : 1
+        );
 
-      threeObject3D.visible = !this._object.hidden;
+        threeObject3D.visible = !this._object.hidden;
 
-      this._isContainerDirty = true;
+        this._isContainerDirty = true;
     }
 }
-
-gdjs.__particleEmmiter3DExtension.ParticleEmitter3DRenderer = ParticleEmitter3DRenderer;
 
 /**
  * @param {string} colorString
@@ -242,7 +242,6 @@ class ParticleEmitterAdapter {
     }
 }
 
-gdjs.__particleEmmiter3DExtension.ParticleEmitterAdapter = ParticleEmitterAdapter;
 
 
 /**
@@ -1620,14 +1619,14 @@ class ChangeEmitDirection {
 
 const VECTOR_ONE = new THREE.Vector3(1, 1, 1);
 const VECTOR_Z = new THREE.Vector3(0, 0, 1);
-gdjs.__particleEmmiter3DExtension.SubParticleEmitMode = void 0;
+let SubParticleEmitMode = void 0;
 (function (SubParticleEmitMode) {
     SubParticleEmitMode[SubParticleEmitMode["Death"] = 0] = "Death";
     SubParticleEmitMode[SubParticleEmitMode["Birth"] = 1] = "Birth";
     SubParticleEmitMode[SubParticleEmitMode["Frame"] = 2] = "Frame";
-})(gdjs.__particleEmmiter3DExtension.SubParticleEmitMode || (gdjs.__particleEmmiter3DExtension.SubParticleEmitMode = {}));
+})(SubParticleEmitMode || (SubParticleEmitMode = {}));
 class EmitSubParticleSystem {
-    constructor(particleSystem, useVelocityAsBasis, subParticleSystem, mode = gdjs.__particleEmmiter3DExtension.SubParticleEmitMode.Frame, emitProbability = 1) {
+    constructor(particleSystem, useVelocityAsBasis, subParticleSystem, mode = SubParticleEmitMode.Frame, emitProbability = 1) {
         this.particleSystem = particleSystem;
         this.useVelocityAsBasis = useVelocityAsBasis;
         this.subParticleSystem = subParticleSystem;
@@ -1645,13 +1644,13 @@ class EmitSubParticleSystem {
     initialize(particle) {
     }
     update(particle, delta) {
-        if (this.mode === gdjs.__particleEmmiter3DExtension.SubParticleEmitMode.Frame) {
+        if (this.mode === SubParticleEmitMode.Frame) {
             this.emit(particle, delta);
         }
-        else if (this.mode === gdjs.__particleEmmiter3DExtension.SubParticleEmitMode.Birth && particle.age === 0) {
+        else if (this.mode === SubParticleEmitMode.Birth && particle.age === 0) {
             this.emit(particle, delta);
         }
-        else if (this.mode === gdjs.__particleEmmiter3DExtension.SubParticleEmitMode.Death && particle.age + delta >= particle.life) {
+        else if (this.mode === SubParticleEmitMode.Death && particle.age + delta >= particle.life) {
             this.emit(particle, delta);
         }
     }
@@ -2740,16 +2739,16 @@ function BehaviorFromJSON(json, particleSystem) {
     return BehaviorTypes[json.type].loadJSON(json, particleSystem);
 }
 
-gdjs.__particleEmmiter3DExtension.EmitterMode = void 0;
+let EmitterMode = void 0;
 (function (EmitterMode) {
     EmitterMode[EmitterMode["Random"] = 0] = "Random";
     EmitterMode[EmitterMode["Loop"] = 1] = "Loop";
     EmitterMode[EmitterMode["PingPong"] = 2] = "PingPong";
     EmitterMode[EmitterMode["Burst"] = 3] = "Burst";
-})(gdjs.__particleEmmiter3DExtension.EmitterMode || (gdjs.__particleEmmiter3DExtension.EmitterMode = {}));
+})(EmitterMode || (EmitterMode = {}));
 function getValueFromEmitterMode(mode, currentValue, spread) {
     let u;
-    if (gdjs.__particleEmmiter3DExtension.EmitterMode.Random === mode) {
+    if (EmitterMode.Random === mode) {
         currentValue = Math.random();
     }
     if (spread > 0) {
@@ -2759,10 +2758,10 @@ function getValueFromEmitterMode(mode, currentValue, spread) {
         u = currentValue;
     }
     switch (mode) {
-        case gdjs.__particleEmmiter3DExtension.EmitterMode.Loop:
+        case EmitterMode.Loop:
             u = u % 1;
             break;
-        case gdjs.__particleEmmiter3DExtension.EmitterMode.PingPong:
+        case EmitterMode.PingPong:
             u = Math.abs((u % 2) - 1);
             break;
     }
@@ -2778,12 +2777,12 @@ class ConeEmitter {
         this.arc = (_b = parameters.arc) !== null && _b !== void 0 ? _b : 2.0 * Math.PI;
         this.thickness = (_c = parameters.thickness) !== null && _c !== void 0 ? _c : 1;
         this.angle = (_d = parameters.angle) !== null && _d !== void 0 ? _d : Math.PI / 6;
-        this.mode = (_e = parameters.mode) !== null && _e !== void 0 ? _e : gdjs.__particleEmmiter3DExtension.EmitterMode.Random;
+        this.mode = (_e = parameters.mode) !== null && _e !== void 0 ? _e : EmitterMode.Random;
         this.spread = (_f = parameters.spread) !== null && _f !== void 0 ? _f : 0;
         this.speed = (_g = parameters.speed) !== null && _g !== void 0 ? _g : new ConstantValue(1);
     }
     update(system, delta) {
-        if (gdjs.__particleEmmiter3DExtension.EmitterMode.Random != this.mode) {
+        if (EmitterMode.Random != this.mode) {
             this.currentValue += this.speed.genValue(system.emissionState.time / system.duration) * delta;
         }
     }
@@ -2845,7 +2844,7 @@ class CircleEmitter {
         this.radius = (_a = parameters.radius) !== null && _a !== void 0 ? _a : 10;
         this.arc = (_b = parameters.arc) !== null && _b !== void 0 ? _b : 2.0 * Math.PI;
         this.thickness = (_c = parameters.thickness) !== null && _c !== void 0 ? _c : 1;
-        this.mode = (_d = parameters.mode) !== null && _d !== void 0 ? _d : gdjs.__particleEmmiter3DExtension.EmitterMode.Random;
+        this.mode = (_d = parameters.mode) !== null && _d !== void 0 ? _d : EmitterMode.Random;
         this.spread = (_e = parameters.spread) !== null && _e !== void 0 ? _e : 0;
         this.speed = (_f = parameters.speed) !== null && _f !== void 0 ? _f : new ConstantValue(1);
     }
@@ -2904,12 +2903,12 @@ class DonutEmitter {
         this.arc = (_b = parameters.arc) !== null && _b !== void 0 ? _b : 2.0 * Math.PI;
         this.thickness = (_c = parameters.thickness) !== null && _c !== void 0 ? _c : 1;
         this.donutRadius = (_d = parameters.donutRadius) !== null && _d !== void 0 ? _d : this.radius * 0.2;
-        this.mode = (_e = parameters.mode) !== null && _e !== void 0 ? _e : gdjs.__particleEmmiter3DExtension.EmitterMode.Random;
+        this.mode = (_e = parameters.mode) !== null && _e !== void 0 ? _e : EmitterMode.Random;
         this.spread = (_f = parameters.spread) !== null && _f !== void 0 ? _f : 0;
         this.speed = (_g = parameters.speed) !== null && _g !== void 0 ? _g : new ConstantValue(1);
     }
     update(system, delta) {
-        if (gdjs.__particleEmmiter3DExtension.EmitterMode.Random != this.mode) {
+        if (EmitterMode.Random != this.mode) {
             this.currentValue += this.speed.genValue(system.emissionState.time / system.duration) * delta;
         }
     }
@@ -3008,12 +3007,12 @@ class SphereEmitter {
         this.radius = (_a = parameters.radius) !== null && _a !== void 0 ? _a : 10;
         this.arc = (_b = parameters.arc) !== null && _b !== void 0 ? _b : 2.0 * Math.PI;
         this.thickness = (_c = parameters.thickness) !== null && _c !== void 0 ? _c : 1;
-        this.mode = (_d = parameters.mode) !== null && _d !== void 0 ? _d : gdjs.__particleEmmiter3DExtension.EmitterMode.Random;
+        this.mode = (_d = parameters.mode) !== null && _d !== void 0 ? _d : EmitterMode.Random;
         this.spread = (_e = parameters.spread) !== null && _e !== void 0 ? _e : 0;
         this.speed = (_f = parameters.speed) !== null && _f !== void 0 ? _f : new ConstantValue(1);
     }
     update(system, delta) {
-        if (gdjs.__particleEmmiter3DExtension.EmitterMode.Random != this.mode) {
+        if (EmitterMode.Random != this.mode) {
             this.currentValue += this.speed.genValue(system.emissionState.time / system.duration) * delta;
         }
     }
@@ -3074,12 +3073,12 @@ class HemisphereEmitter {
         this.radius = (_a = parameters.radius) !== null && _a !== void 0 ? _a : 10;
         this.arc = (_b = parameters.arc) !== null && _b !== void 0 ? _b : 2.0 * Math.PI;
         this.thickness = (_c = parameters.thickness) !== null && _c !== void 0 ? _c : 1;
-        this.mode = (_d = parameters.mode) !== null && _d !== void 0 ? _d : gdjs.__particleEmmiter3DExtension.EmitterMode.Random;
+        this.mode = (_d = parameters.mode) !== null && _d !== void 0 ? _d : EmitterMode.Random;
         this.spread = (_e = parameters.spread) !== null && _e !== void 0 ? _e : 0;
         this.speed = (_f = parameters.speed) !== null && _f !== void 0 ? _f : new ConstantValue(1);
     }
     update(system, delta) {
-        if (gdjs.__particleEmmiter3DExtension.EmitterMode.Random != this.mode) {
+        if (EmitterMode.Random != this.mode) {
             this.currentValue += this.speed.genValue(system.emissionState.time / system.duration) * delta;
         }
     }
@@ -3358,7 +3357,7 @@ function EmitterFromJSON(json, meta) {
     return EmitterShapes[json.type].loadJSON(json, meta);
 }
 
-gdjs.__particleEmmiter3DExtension.RenderMode = void 0;
+let RenderMode = void 0;
 (function (RenderMode) {
     RenderMode[RenderMode["BillBoard"] = 0] = "BillBoard";
     RenderMode[RenderMode["StretchedBillBoard"] = 1] = "StretchedBillBoard";
@@ -3366,7 +3365,7 @@ gdjs.__particleEmmiter3DExtension.RenderMode = void 0;
     RenderMode[RenderMode["Trail"] = 3] = "Trail";
     RenderMode[RenderMode["HorizontalBillBoard"] = 4] = "HorizontalBillBoard";
     RenderMode[RenderMode["VerticalBillBoard"] = 5] = "VerticalBillBoard";
-})(gdjs.__particleEmmiter3DExtension.RenderMode || (gdjs.__particleEmmiter3DExtension.RenderMode = {}));
+})(RenderMode || (RenderMode = {}));
 class VFXBatch extends THREE.Mesh {
     constructor(settings) {
         super();
@@ -3456,36 +3455,36 @@ class ParticleSystem {
         return this.rendererSettings.renderMode;
     }
     set renderMode(renderMode) {
-        if ((this.rendererSettings.renderMode != gdjs.__particleEmmiter3DExtension.RenderMode.Trail && renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Trail) ||
-            (this.rendererSettings.renderMode == gdjs.__particleEmmiter3DExtension.RenderMode.Trail && renderMode !== gdjs.__particleEmmiter3DExtension.RenderMode.Trail)) {
+        if ((this.rendererSettings.renderMode != RenderMode.Trail && renderMode === RenderMode.Trail) ||
+            (this.rendererSettings.renderMode == RenderMode.Trail && renderMode !== RenderMode.Trail)) {
             this.restart();
             this.particles.length = 0;
         }
         if (this.rendererSettings.renderMode !== renderMode) {
             switch (renderMode) {
-                case gdjs.__particleEmmiter3DExtension.RenderMode.Trail:
+                case RenderMode.Trail:
                     this.rendererEmitterSettings = {
                         startLength: new ConstantValue(30),
                         followLocalOrigin: false,
                     };
                     break;
-                case gdjs.__particleEmmiter3DExtension.RenderMode.Mesh:
+                case RenderMode.Mesh:
                     this.rendererEmitterSettings = {
                         geometry: new THREE.PlaneGeometry(1, 1),
                     };
                     this.startRotation = new AxisAngleGenerator(new THREE.Vector3(0, 1, 0), new ConstantValue(0));
                     break;
-                case gdjs.__particleEmmiter3DExtension.RenderMode.StretchedBillBoard:
+                case RenderMode.StretchedBillBoard:
                     this.rendererEmitterSettings = { speedFactor: 0, lengthFactor: 2 };
-                    if (this.rendererSettings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Mesh) {
+                    if (this.rendererSettings.renderMode === RenderMode.Mesh) {
                         this.startRotation = new ConstantValue(0);
                     }
                     break;
-                case gdjs.__particleEmmiter3DExtension.RenderMode.BillBoard:
-                case gdjs.__particleEmmiter3DExtension.RenderMode.VerticalBillBoard:
-                case gdjs.__particleEmmiter3DExtension.RenderMode.HorizontalBillBoard:
+                case RenderMode.BillBoard:
+                case RenderMode.VerticalBillBoard:
+                case RenderMode.HorizontalBillBoard:
                     this.rendererEmitterSettings = {};
-                    if (this.rendererSettings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Mesh) {
+                    if (this.rendererSettings.renderMode === RenderMode.Mesh) {
                         this.startRotation = new ConstantValue(0);
                     }
                     break;
@@ -3531,7 +3530,7 @@ class ParticleSystem {
         this.behaviors = (_m = parameters.behaviors) !== null && _m !== void 0 ? _m : new Array();
         this.worldSpace = (_o = parameters.worldSpace) !== null && _o !== void 0 ? _o : false;
         this.rendererEmitterSettings = (_p = parameters.rendererEmitterSettings) !== null && _p !== void 0 ? _p : {};
-        if (parameters.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.StretchedBillBoard) {
+        if (parameters.renderMode === RenderMode.StretchedBillBoard) {
             const stretchedBillboardSettings = this.rendererEmitterSettings;
             if (parameters.speedFactor !== undefined) {
                 stretchedBillboardSettings.speedFactor = parameters.speedFactor;
@@ -3541,7 +3540,7 @@ class ParticleSystem {
         }
         this.rendererSettings = {
             instancingGeometry: (_s = parameters.instancingGeometry) !== null && _s !== void 0 ? _s : DEFAULT_GEOMETRY$1,
-            renderMode: (_t = parameters.renderMode) !== null && _t !== void 0 ? _t : gdjs.__particleEmmiter3DExtension.RenderMode.BillBoard,
+            renderMode: (_t = parameters.renderMode) !== null && _t !== void 0 ? _t : RenderMode.BillBoard,
             renderOrder: (_u = parameters.renderOrder) !== null && _u !== void 0 ? _u : 0,
             material: parameters.material,
             uTileCount: (_v = parameters.uTileCount) !== null && _v !== void 0 ? _v : 1,
@@ -3580,7 +3579,7 @@ class ParticleSystem {
         for (let i = 0; i < count; i++) {
             this.particleNum++;
             while (this.particles.length < this.particleNum) {
-                if (this.rendererSettings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Trail) {
+                if (this.rendererSettings.renderMode === RenderMode.Trail) {
                     this.particles.push(new TrailParticle());
                 }
                 else {
@@ -3597,13 +3596,13 @@ class ParticleSystem {
             particle.startSize = this.startSize.genValue(emissionState.time / this.duration);
             particle.uvTile = Math.floor(this.startTileIndex.genValue() + 0.001);
             particle.size = particle.startSize;
-            if (this.rendererSettings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Mesh ||
-                this.rendererSettings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.BillBoard ||
-                this.rendererSettings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.VerticalBillBoard ||
-                this.rendererSettings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.HorizontalBillBoard ||
-                this.rendererSettings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.StretchedBillBoard) {
+            if (this.rendererSettings.renderMode === RenderMode.Mesh ||
+                this.rendererSettings.renderMode === RenderMode.BillBoard ||
+                this.rendererSettings.renderMode === RenderMode.VerticalBillBoard ||
+                this.rendererSettings.renderMode === RenderMode.HorizontalBillBoard ||
+                this.rendererSettings.renderMode === RenderMode.StretchedBillBoard) {
                 const sprite = particle;
-                if (this.rendererSettings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Mesh) {
+                if (this.rendererSettings.renderMode === RenderMode.Mesh) {
                     if (!(sprite.rotation instanceof THREE.Quaternion)) {
                         sprite.rotation = new THREE.Quaternion();
                     }
@@ -3623,12 +3622,12 @@ class ParticleSystem {
                     }
                 }
             }
-            else if (this.rendererSettings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Trail) {
+            else if (this.rendererSettings.renderMode === RenderMode.Trail) {
                 const trail = particle;
                 trail.length = this.rendererEmitterSettings.startLength.genValue(emissionState.time / this.duration);
             }
             this.emitterShape.initialize(particle);
-            if (this.rendererSettings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Trail &&
+            if (this.rendererSettings.renderMode === RenderMode.Trail &&
                 this.rendererEmitterSettings.followLocalOrigin) {
                 const trail = particle;
                 trail.localPosition = new THREE.Vector3().copy(trail.position);
@@ -3742,7 +3741,7 @@ class ParticleSystem {
             }
             this.particles[i].age += delta;
         }
-        if (this.rendererSettings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Trail) {
+        if (this.rendererSettings.renderMode === RenderMode.Trail) {
             for (let i = 0; i < this.particleNum; i++) {
                 const particle = this.particles[i];
                 particle.update();
@@ -3828,16 +3827,16 @@ class ParticleSystem {
             }
         }
         let rendererSettingsJSON;
-        if (this.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Trail) {
+        if (this.renderMode === RenderMode.Trail) {
             rendererSettingsJSON = {
                 startLength: this.rendererEmitterSettings.startLength.toJSON(),
                 followLocalOrigin: this.rendererEmitterSettings.followLocalOrigin,
             };
         }
-        else if (this.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Mesh) {
+        else if (this.renderMode === RenderMode.Mesh) {
             rendererSettingsJSON = {};
         }
-        else if (this.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.StretchedBillBoard) {
+        else if (this.renderMode === RenderMode.StretchedBillBoard) {
             rendererSettingsJSON = {
                 speedFactor: this.rendererEmitterSettings.speedFactor,
                 lengthFactor: this.rendererEmitterSettings.lengthFactor,
@@ -3889,7 +3888,7 @@ class ParticleSystem {
         var _a, _b;
         const shape = EmitterFromJSON(json.shape, meta);
         let rendererEmitterSettings;
-        if (json.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Trail) {
+        if (json.renderMode === RenderMode.Trail) {
             let trailSettings = json.rendererEmitterSettings;
             rendererEmitterSettings = {
                 startLength: trailSettings.startLength != undefined
@@ -3898,10 +3897,10 @@ class ParticleSystem {
                 followLocalOrigin: trailSettings.followLocalOrigin,
             };
         }
-        else if (json.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Mesh) {
+        else if (json.renderMode === RenderMode.Mesh) {
             rendererEmitterSettings = {};
         }
-        else if (json.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.StretchedBillBoard) {
+        else if (json.renderMode === RenderMode.StretchedBillBoard) {
             rendererEmitterSettings = json.rendererEmitterSettings;
             if (json.speedFactor != undefined) {
                 rendererEmitterSettings.speedFactor = json.speedFactor;
@@ -3992,7 +3991,7 @@ class ParticleSystem {
             newBehaviors.push(behavior.clone());
         }
         let rendererEmitterSettings;
-        if (this.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Trail) {
+        if (this.renderMode === RenderMode.Trail) {
             rendererEmitterSettings = {
                 startLength: this.rendererEmitterSettings.startLength.clone(),
                 followLocalOrigin: this.rendererEmitterSettings.followLocalOrigin,
@@ -4590,15 +4589,15 @@ class SpriteBatch extends VFXBatch {
         this.colorBuffer = new THREE.InstancedBufferAttribute(new Float32Array(this.maxParticles * 4), 4);
         this.colorBuffer.setUsage(THREE.DynamicDrawUsage);
         this.geometry.setAttribute('color', this.colorBuffer);
-        if (this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Mesh) {
+        if (this.settings.renderMode === RenderMode.Mesh) {
             this.rotationBuffer = new THREE.InstancedBufferAttribute(new Float32Array(this.maxParticles * 4), 4);
             this.rotationBuffer.setUsage(THREE.DynamicDrawUsage);
             this.geometry.setAttribute('rotation', this.rotationBuffer);
         }
-        else if (this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.BillBoard ||
-            this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.HorizontalBillBoard ||
-            this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.VerticalBillBoard ||
-            this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.StretchedBillBoard) {
+        else if (this.settings.renderMode === RenderMode.BillBoard ||
+            this.settings.renderMode === RenderMode.HorizontalBillBoard ||
+            this.settings.renderMode === RenderMode.VerticalBillBoard ||
+            this.settings.renderMode === RenderMode.StretchedBillBoard) {
             this.rotationBuffer = new THREE.InstancedBufferAttribute(new Float32Array(this.maxParticles), 1);
             this.rotationBuffer.setUsage(THREE.DynamicDrawUsage);
             this.geometry.setAttribute('rotation', this.rotationBuffer);
@@ -4609,7 +4608,7 @@ class SpriteBatch extends VFXBatch {
         this.uvTileBuffer = new THREE.InstancedBufferAttribute(new Float32Array(this.maxParticles), 1);
         this.uvTileBuffer.setUsage(THREE.DynamicDrawUsage);
         this.geometry.setAttribute('uvTile', this.uvTileBuffer);
-        if (this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.StretchedBillBoard) {
+        if (this.settings.renderMode === RenderMode.StretchedBillBoard) {
             this.velocityBuffer = new THREE.InstancedBufferAttribute(new Float32Array(this.maxParticles * 4), 4);
             this.velocityBuffer.setUsage(THREE.DynamicDrawUsage);
             this.geometry.setAttribute('velocity', this.velocityBuffer);
@@ -4714,13 +4713,13 @@ class SpriteBatch extends VFXBatch {
         }
         defines['USE_COLOR_ALPHA'] = '';
         let needLights = false;
-        if (this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.BillBoard ||
-            this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.VerticalBillBoard ||
-            this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.HorizontalBillBoard ||
-            this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Mesh) {
+        if (this.settings.renderMode === RenderMode.BillBoard ||
+            this.settings.renderMode === RenderMode.VerticalBillBoard ||
+            this.settings.renderMode === RenderMode.HorizontalBillBoard ||
+            this.settings.renderMode === RenderMode.Mesh) {
             let vertexShader;
             let fragmentShader;
-            if (this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Mesh) {
+            if (this.settings.renderMode === RenderMode.Mesh) {
                 if (this.settings.material.type === 'MeshStandardMaterial' ||
                     this.settings.material.type === 'MeshPhysicalMaterial') {
                     defines['USE_COLOR'] = '';
@@ -4737,10 +4736,10 @@ class SpriteBatch extends VFXBatch {
                 vertexShader = particle_vert;
                 fragmentShader = particle_frag;
             }
-            if (this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.VerticalBillBoard) {
+            if (this.settings.renderMode === RenderMode.VerticalBillBoard) {
                 defines['VERTICAL'] = '';
             }
-            else if (this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.HorizontalBillBoard) {
+            else if (this.settings.renderMode === RenderMode.HorizontalBillBoard) {
                 defines['HORIZONTAL'] = '';
             }
             this.material = new THREE.ShaderMaterial({
@@ -4756,7 +4755,7 @@ class SpriteBatch extends VFXBatch {
                 lights: needLights,
             });
         }
-        else if (this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.StretchedBillBoard) {
+        else if (this.settings.renderMode === RenderMode.StretchedBillBoard) {
             uniforms['speedFactor'] = new THREE.Uniform(1.0);
             this.material = new THREE.ShaderMaterial({
                 uniforms: uniforms,
@@ -4793,7 +4792,7 @@ class SpriteBatch extends VFXBatch {
             this.rotationMat_.setFromMatrix4(system.emitter.matrixWorld);
             for (let j = 0; j < particleNum; j++ , index++) {
                 const particle = particles[j];
-                if (this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Mesh) {
+                if (this.settings.renderMode === RenderMode.Mesh) {
                     let q;
                     if (system.worldSpace) {
                         q = particle.rotation;
@@ -4811,10 +4810,10 @@ class SpriteBatch extends VFXBatch {
                     }
                     this.rotationBuffer.setXYZW(index, q.x, q.y, q.z, q.w);
                 }
-                else if (this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.StretchedBillBoard ||
-                    this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.VerticalBillBoard ||
-                    this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.HorizontalBillBoard ||
-                    this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.BillBoard) {
+                else if (this.settings.renderMode === RenderMode.StretchedBillBoard ||
+                    this.settings.renderMode === RenderMode.VerticalBillBoard ||
+                    this.settings.renderMode === RenderMode.HorizontalBillBoard ||
+                    this.settings.renderMode === RenderMode.BillBoard) {
                     this.rotationBuffer.setX(index, particle.rotation);
                 }
                 let vec;
@@ -4844,7 +4843,7 @@ class SpriteBatch extends VFXBatch {
                     }
                 }
                 this.uvTileBuffer.setX(index, particle.uvTile);
-                if (this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.StretchedBillBoard && this.velocityBuffer) {
+                if (this.settings.renderMode === RenderMode.StretchedBillBoard && this.velocityBuffer) {
                     let speedFactor = system.rendererEmitterSettings.speedFactor;
                     if (speedFactor === 0)
                         speedFactor = 0.001;
@@ -4877,18 +4876,18 @@ class SpriteBatch extends VFXBatch {
             this.colorBuffer.needsUpdate = true;
             this.uvTileBuffer.updateRange.count = index;
             this.uvTileBuffer.needsUpdate = true;
-            if (this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.StretchedBillBoard && this.velocityBuffer) {
+            if (this.settings.renderMode === RenderMode.StretchedBillBoard && this.velocityBuffer) {
                 this.velocityBuffer.updateRange.count = index * 4;
                 this.velocityBuffer.needsUpdate = true;
             }
-            if (this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Mesh) {
+            if (this.settings.renderMode === RenderMode.Mesh) {
                 this.rotationBuffer.updateRange.count = index * 4;
                 this.rotationBuffer.needsUpdate = true;
             }
-            else if (this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.StretchedBillBoard ||
-                this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.HorizontalBillBoard ||
-                this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.VerticalBillBoard ||
-                this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.BillBoard) {
+            else if (this.settings.renderMode === RenderMode.StretchedBillBoard ||
+                this.settings.renderMode === RenderMode.HorizontalBillBoard ||
+                this.settings.renderMode === RenderMode.VerticalBillBoard ||
+                this.settings.renderMode === RenderMode.BillBoard) {
                 this.rotationBuffer.updateRange.count = index;
                 this.rotationBuffer.needsUpdate = true;
             }
@@ -5089,7 +5088,7 @@ class TrailBatch extends VFXBatch {
             this.settings.material.defines['USE_COLOR_AS_ALPHA'] !== undefined) {
             defines['USE_COLOR_AS_ALPHA'] = '';
         }
-        if (this.settings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Trail) {
+        if (this.settings.renderMode === RenderMode.Trail) {
             this.material = new THREE.ShaderMaterial({
                 uniforms: uniforms,
                 defines: defines,
@@ -5288,14 +5287,14 @@ class BatchedRenderer extends THREE.Object3D {
         }
         let batch;
         switch (settings.renderMode) {
-            case gdjs.__particleEmmiter3DExtension.RenderMode.Trail:
+            case RenderMode.Trail:
                 batch = new TrailBatch(settings);
                 break;
-            case gdjs.__particleEmmiter3DExtension.RenderMode.Mesh:
-            case gdjs.__particleEmmiter3DExtension.RenderMode.BillBoard:
-            case gdjs.__particleEmmiter3DExtension.RenderMode.VerticalBillBoard:
-            case gdjs.__particleEmmiter3DExtension.RenderMode.HorizontalBillBoard:
-            case gdjs.__particleEmmiter3DExtension.RenderMode.StretchedBillBoard:
+            case RenderMode.Mesh:
+            case RenderMode.BillBoard:
+            case RenderMode.VerticalBillBoard:
+            case RenderMode.HorizontalBillBoard:
+            case RenderMode.StretchedBillBoard:
                 batch = new SpriteBatch(settings);
                 break;
         }
@@ -5627,7 +5626,7 @@ function unloadPlugin(pluginId) {
     }
 }
 
-gdjs.__particleEmmiter3DExtension.NodeValueType = void 0;
+let NodeValueType = void 0;
 (function (NodeValueType) {
     NodeValueType[NodeValueType["Number"] = 0] = "Number";
     NodeValueType[NodeValueType["Vec2"] = 1] = "Vec2";
@@ -5637,22 +5636,22 @@ gdjs.__particleEmmiter3DExtension.NodeValueType = void 0;
     NodeValueType[NodeValueType["AnyType"] = 5] = "AnyType";
     NodeValueType[NodeValueType["NullableAnyType"] = 6] = "NullableAnyType";
     NodeValueType[NodeValueType["EventStream"] = 7] = "EventStream";
-})(gdjs.__particleEmmiter3DExtension.NodeValueType || (gdjs.__particleEmmiter3DExtension.NodeValueType = {}));
+})(NodeValueType || (NodeValueType = {}));
 const genDefaultForNodeValueType = (type) => {
     switch (type) {
-        case gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean:
+        case NodeValueType.Boolean:
             return false;
-        case gdjs.__particleEmmiter3DExtension.NodeValueType.Number:
+        case NodeValueType.Number:
             return 0;
-        case gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2:
+        case NodeValueType.Vec2:
             return new THREE.Vector2();
-        case gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3:
+        case NodeValueType.Vec3:
             return new THREE.Vector3();
-        case gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4:
+        case NodeValueType.Vec4:
             return new THREE.Vector4();
-        case gdjs.__particleEmmiter3DExtension.NodeValueType.AnyType:
+        case NodeValueType.AnyType:
             return 0;
-        case gdjs.__particleEmmiter3DExtension.NodeValueType.NullableAnyType:
+        case NodeValueType.NullableAnyType:
             return undefined;
     }
 };
@@ -5803,222 +5802,222 @@ class GraphNodeType extends NodeType {
 
 const NodeTypes = {};
 const addNode = new NodeType('add');
-addNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+addNode.addSignature([NodeValueType.Number, NodeValueType.Number], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0] + inputs[1];
 });
-addNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], (context, data, inputs, outputs) => {
+addNode.addSignature([NodeValueType.Vec2, NodeValueType.Vec2], [NodeValueType.Vec2], (context, data, inputs, outputs) => {
     outputs[0].addVectors(inputs[0], inputs[1]);
 });
-addNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], (context, data, inputs, outputs) => {
+addNode.addSignature([NodeValueType.Vec3, NodeValueType.Vec3], [NodeValueType.Vec3], (context, data, inputs, outputs) => {
     outputs[0].addVectors(inputs[0], inputs[1]);
 });
-addNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], (context, data, inputs, outputs) => {
+addNode.addSignature([NodeValueType.Vec4, NodeValueType.Vec4], [NodeValueType.Vec4], (context, data, inputs, outputs) => {
     outputs[0].addVectors(inputs[0], inputs[1]);
 });
 NodeTypes['add'] = addNode;
 const subNode = new NodeType('sub');
-subNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+subNode.addSignature([NodeValueType.Number, NodeValueType.Number], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0] - inputs[1];
 });
-subNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], (context, data, inputs, outputs) => {
+subNode.addSignature([NodeValueType.Vec2, NodeValueType.Vec2], [NodeValueType.Vec2], (context, data, inputs, outputs) => {
     outputs[0].subVectors(inputs[0], inputs[1]);
 });
-subNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], (context, data, inputs, outputs) => {
+subNode.addSignature([NodeValueType.Vec3, NodeValueType.Vec3], [NodeValueType.Vec3], (context, data, inputs, outputs) => {
     outputs[0].subVectors(inputs[0], inputs[1]);
 });
-subNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], (context, data, inputs, outputs) => {
+subNode.addSignature([NodeValueType.Vec4, NodeValueType.Vec4], [NodeValueType.Vec4], (context, data, inputs, outputs) => {
     outputs[0].subVectors(inputs[0], inputs[1]);
 });
 NodeTypes['sub'] = subNode;
 const mulNode = new NodeType('mul');
-mulNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+mulNode.addSignature([NodeValueType.Number, NodeValueType.Number], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0] * inputs[1];
 });
-mulNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], (context, data, inputs, outputs) => {
+mulNode.addSignature([NodeValueType.Vec2, NodeValueType.Number], [NodeValueType.Vec2], (context, data, inputs, outputs) => {
     outputs[0].copy(inputs[0]).multiplyScalar(inputs[1]);
 });
-mulNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], (context, data, inputs, outputs) => {
+mulNode.addSignature([NodeValueType.Vec3, NodeValueType.Number], [NodeValueType.Vec3], (context, data, inputs, outputs) => {
     outputs[0].copy(inputs[0]).multiplyScalar(inputs[1]);
 });
-mulNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], (context, data, inputs, outputs) => {
+mulNode.addSignature([NodeValueType.Vec4, NodeValueType.Number], [NodeValueType.Vec4], (context, data, inputs, outputs) => {
     outputs[0].copy(inputs[0]).multiplyScalar(inputs[1]);
 });
 NodeTypes['mul'] = mulNode;
 const divNode = new NodeType('div');
-divNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+divNode.addSignature([NodeValueType.Number, NodeValueType.Number], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0] / inputs[1];
 });
-divNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], (context, data, inputs, outputs) => {
+divNode.addSignature([NodeValueType.Vec2, NodeValueType.Number], [NodeValueType.Vec2], (context, data, inputs, outputs) => {
     outputs[0].copy(inputs[0]).divideScalar(inputs[1]);
 });
-divNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], (context, data, inputs, outputs) => {
+divNode.addSignature([NodeValueType.Vec3, NodeValueType.Number], [NodeValueType.Vec3], (context, data, inputs, outputs) => {
     outputs[0].copy(inputs[0]).divideScalar(inputs[1]);
 });
-divNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], (context, data, inputs, outputs) => {
+divNode.addSignature([NodeValueType.Vec4, NodeValueType.Number], [NodeValueType.Vec4], (context, data, inputs, outputs) => {
     outputs[0].copy(inputs[0]).divideScalar(inputs[1]);
 });
 NodeTypes['div'] = divNode;
 const sinNode = new NodeType('sin');
-sinNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+sinNode.addSignature([NodeValueType.Number], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = Math.sin(inputs[0]);
 });
 NodeTypes['sin'] = sinNode;
 const cosNode = new NodeType('cos');
-cosNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+cosNode.addSignature([NodeValueType.Number], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = Math.cos(inputs[0]);
 });
 NodeTypes['cos'] = cosNode;
 const tanNode = new NodeType('tan');
-tanNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+tanNode.addSignature([NodeValueType.Number], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = Math.tan(inputs[0]);
 });
 NodeTypes['tan'] = tanNode;
 const absNode = new NodeType('abs');
-absNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+absNode.addSignature([NodeValueType.Number], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = Math.abs(inputs[0]);
 });
 NodeTypes['abs'] = absNode;
 const minNode = new NodeType('min');
-minNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+minNode.addSignature([NodeValueType.Number, NodeValueType.Number], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = Math.min(inputs[0], inputs[1]);
 });
 NodeTypes['min'] = minNode;
 const maxNode = new NodeType('max');
-maxNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+maxNode.addSignature([NodeValueType.Number, NodeValueType.Number], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = Math.max(inputs[0], inputs[1]);
 });
 NodeTypes['max'] = maxNode;
 const dot = new NodeType('dot');
-dot.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+dot.addSignature([NodeValueType.Vec2, NodeValueType.Vec2], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0].dot(inputs[1]);
 });
-dot.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+dot.addSignature([NodeValueType.Vec3, NodeValueType.Vec3], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0].dot(inputs[1]);
 });
-dot.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+dot.addSignature([NodeValueType.Vec4, NodeValueType.Vec4], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0].dot(inputs[1]);
 });
 NodeTypes['dot'] = dot;
 const cross = new NodeType('cross');
-cross.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], (context, data, inputs, outputs) => {
+cross.addSignature([NodeValueType.Vec3, NodeValueType.Vec3], [NodeValueType.Vec3], (context, data, inputs, outputs) => {
     outputs[0].crossVectors(inputs[0], inputs[1]);
 });
 NodeTypes['cross'] = cross;
 const length = new NodeType('length');
-length.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+length.addSignature([NodeValueType.Vec2], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0].length();
 });
-length.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+length.addSignature([NodeValueType.Vec3], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0].length();
 });
-length.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+length.addSignature([NodeValueType.Vec4], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0].length();
 });
 NodeTypes['length'] = length;
 const lengthSq = new NodeType('lengthSq');
-lengthSq.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+lengthSq.addSignature([NodeValueType.Vec2], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0].lengthSq();
 });
-lengthSq.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+lengthSq.addSignature([NodeValueType.Vec3], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0].lengthSq();
 });
-lengthSq.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+lengthSq.addSignature([NodeValueType.Vec4], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0].lengthSq();
 });
 NodeTypes['lengthSq'] = lengthSq;
 const normalize = new NodeType('normalize');
-normalize.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], (context, data, inputs, outputs) => {
+normalize.addSignature([NodeValueType.Vec2], [NodeValueType.Vec2], (context, data, inputs, outputs) => {
     outputs[0].copy(inputs[0]).normalize();
 });
-normalize.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], (context, data, inputs, outputs) => {
+normalize.addSignature([NodeValueType.Vec3], [NodeValueType.Vec3], (context, data, inputs, outputs) => {
     outputs[0].copy(inputs[0]).normalize();
 });
-normalize.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], (context, data, inputs, outputs) => {
+normalize.addSignature([NodeValueType.Vec4], [NodeValueType.Vec4], (context, data, inputs, outputs) => {
     outputs[0].copy(inputs[0]).normalize();
 });
 NodeTypes['normalize'] = normalize;
 const distance = new NodeType('distance');
-distance.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+distance.addSignature([NodeValueType.Vec2, NodeValueType.Vec2], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0].distanceTo(inputs[1]);
 });
-distance.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+distance.addSignature([NodeValueType.Vec3, NodeValueType.Vec3], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0].distanceTo(inputs[1]);
 });
 NodeTypes['distance'] = distance;
 const andNode = new NodeType('and');
-andNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean, gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean], [gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean], (context, data, inputs, outputs) => {
+andNode.addSignature([NodeValueType.Boolean, NodeValueType.Boolean], [NodeValueType.Boolean], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0] && inputs[1];
 });
 NodeTypes['and'] = andNode;
 const orNode = new NodeType('or');
-orNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean, gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean], [gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean], (context, data, inputs, outputs) => {
+orNode.addSignature([NodeValueType.Boolean, NodeValueType.Boolean], [NodeValueType.Boolean], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0] || inputs[1];
 });
 NodeTypes['or'] = orNode;
 const notNode = new NodeType('not');
-notNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean], [gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean], (context, data, inputs, outputs) => {
+notNode.addSignature([NodeValueType.Boolean], [NodeValueType.Boolean], (context, data, inputs, outputs) => {
     outputs[0] = !inputs[0];
 });
 NodeTypes['not'] = notNode;
 const equalNode = new NodeType('equal');
-equalNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean], (context, data, inputs, outputs) => {
+equalNode.addSignature([NodeValueType.Number, NodeValueType.Number], [NodeValueType.Boolean], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0] === inputs[1];
 });
-equalNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], [gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean], (context, data, inputs, outputs) => {
+equalNode.addSignature([NodeValueType.Vec2, NodeValueType.Vec2], [NodeValueType.Boolean], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0].equals(inputs[1]);
 });
-equalNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], [gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean], (context, data, inputs, outputs) => {
+equalNode.addSignature([NodeValueType.Vec3, NodeValueType.Vec3], [NodeValueType.Boolean], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0].equals(inputs[1]);
 });
-equalNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], [gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean], (context, data, inputs, outputs) => {
+equalNode.addSignature([NodeValueType.Vec4, NodeValueType.Vec4], [NodeValueType.Boolean], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0].equals(inputs[1]);
 });
 NodeTypes['equal'] = equalNode;
 const lessThanNode = new NodeType('lessThan');
-lessThanNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean], (context, data, inputs, outputs) => {
+lessThanNode.addSignature([NodeValueType.Number, NodeValueType.Number], [NodeValueType.Boolean], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0] < inputs[1];
 });
 NodeTypes['lessThan'] = lessThanNode;
 const greaterThanNode = new NodeType('greaterThan');
-greaterThanNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean], (context, data, inputs, outputs) => {
+greaterThanNode.addSignature([NodeValueType.Number, NodeValueType.Number], [NodeValueType.Boolean], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0] > inputs[1];
 });
 NodeTypes['greaterThan'] = greaterThanNode;
 const lessThanOrEqualNode = new NodeType('lessThanOrEqual');
-lessThanOrEqualNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean], (context, data, inputs, outputs) => {
+lessThanOrEqualNode.addSignature([NodeValueType.Number, NodeValueType.Number], [NodeValueType.Boolean], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0] <= inputs[1];
 });
 NodeTypes['lessThanOrEqual'] = lessThanOrEqualNode;
 const greaterThanOrEqualNode = new NodeType('greaterThanOrEqual');
-greaterThanOrEqualNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean], (context, data, inputs, outputs) => {
+greaterThanOrEqualNode.addSignature([NodeValueType.Number, NodeValueType.Number], [NodeValueType.Boolean], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0] >= inputs[1];
 });
 NodeTypes['greaterThanOrEqual'] = greaterThanOrEqualNode;
 const ifNode = new NodeType('if');
-ifNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean, gdjs.__particleEmmiter3DExtension.NodeValueType.AnyType, gdjs.__particleEmmiter3DExtension.NodeValueType.AnyType], [gdjs.__particleEmmiter3DExtension.NodeValueType.AnyType], (context, data, inputs, outputs) => {
+ifNode.addSignature([NodeValueType.Boolean, NodeValueType.AnyType, NodeValueType.AnyType], [NodeValueType.AnyType], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0] ? inputs[1] : inputs[2];
 });
 NodeTypes['if'] = ifNode;
 const numberNode = new NodeType('number');
-numberNode.addSignature([], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+numberNode.addSignature([], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = data.value;
 });
 NodeTypes['number'] = numberNode;
 const vec2Node = new NodeType('vec2');
-vec2Node.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], (context, data, inputs, outputs) => {
+vec2Node.addSignature([NodeValueType.Number, NodeValueType.Number], [NodeValueType.Vec2], (context, data, inputs, outputs) => {
     outputs[0].x = inputs[0];
     outputs[0].y = inputs[1];
 });
 NodeTypes['vec2'] = vec2Node;
 const vec3Node = new NodeType('vec3');
-vec3Node.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], (context, data, inputs, outputs) => {
+vec3Node.addSignature([NodeValueType.Number, NodeValueType.Number, NodeValueType.Number], [NodeValueType.Vec3], (context, data, inputs, outputs) => {
     outputs[0].x = inputs[0];
     outputs[0].y = inputs[1];
     outputs[0].z = inputs[2];
 });
 NodeTypes['vec3'] = vec3Node;
 const vec4Node = new NodeType('vec4');
-vec4Node.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], (context, data, inputs, outputs) => {
+vec4Node.addSignature([NodeValueType.Number, NodeValueType.Number, NodeValueType.Number, NodeValueType.Number], [NodeValueType.Vec4], (context, data, inputs, outputs) => {
     outputs[0].x = inputs[0];
     outputs[0].y = inputs[1];
     outputs[0].z = inputs[2];
@@ -6026,20 +6025,20 @@ vec4Node.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, g
 });
 NodeTypes['vec4'] = vec4Node;
 const splitVec2Node = new NodeType('splitVec2');
-splitVec2Node.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+splitVec2Node.addSignature([NodeValueType.Vec2], [NodeValueType.Number, NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0].x;
     outputs[1] = inputs[0].y;
 });
 NodeTypes['splitVec2'] = splitVec2Node;
 const splitVec3Node = new NodeType('splitVec3');
-splitVec3Node.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+splitVec3Node.addSignature([NodeValueType.Vec3], [NodeValueType.Number, NodeValueType.Number, NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0].x;
     outputs[1] = inputs[0].y;
     outputs[2] = inputs[0].z;
 });
 NodeTypes['splitVec3'] = splitVec3Node;
 const splitVec4Node = new NodeType('splitVec4');
-splitVec4Node.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+splitVec4Node.addSignature([NodeValueType.Vec4], [NodeValueType.Number, NodeValueType.Number, NodeValueType.Number, NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0].x;
     outputs[1] = inputs[0].y;
     outputs[2] = inputs[0].z;
@@ -6047,12 +6046,12 @@ splitVec4Node.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4
 });
 NodeTypes['splitVec4'] = splitVec4Node;
 const boolNode = new NodeType('bool');
-boolNode.addSignature([], [gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean], (context, data, inputs, outputs) => {
+boolNode.addSignature([], [NodeValueType.Boolean], (context, data, inputs, outputs) => {
     outputs[0] = data.value;
 });
 NodeTypes['bool'] = boolNode;
 const particlePropertyNode = new NodeType('particleProperty');
-particlePropertyNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.NullableAnyType], [gdjs.__particleEmmiter3DExtension.NodeValueType.NullableAnyType], (context, data, inputs, outputs) => {
+particlePropertyNode.addSignature([NodeValueType.NullableAnyType], [NodeValueType.NullableAnyType], (context, data, inputs, outputs) => {
     if (inputs[0] !== undefined) {
         if (typeof inputs[0] === 'object') {
             context.particle[data.property].copy(inputs[0]);
@@ -6072,7 +6071,7 @@ particlePropertyNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueTy
 });
 NodeTypes['particleProperty'] = particlePropertyNode;
 const emitNode = new NodeType('emit');
-emitNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.EventStream], [], (context, data, inputs, outputs) => {
+emitNode.addSignature([NodeValueType.EventStream], [], (context, data, inputs, outputs) => {
     const arr = inputs[0];
     for (let i = 0; i < arr.length; i++) {
         context.signal(i, arr[i]);
@@ -6080,7 +6079,7 @@ emitNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.EventStre
 });
 NodeTypes['emit'] = emitNode;
 const graphPropertyNode = new NodeType('graphProperty');
-graphPropertyNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.NullableAnyType], [gdjs.__particleEmmiter3DExtension.NodeValueType.NullableAnyType], (context, data, inputs, outputs) => {
+graphPropertyNode.addSignature([NodeValueType.NullableAnyType], [NodeValueType.NullableAnyType], (context, data, inputs, outputs) => {
     if (inputs[0] !== undefined) {
         if (typeof inputs[0] === 'object') {
             context.graph[data.property].copy(inputs[0]);
@@ -6100,12 +6099,12 @@ graphPropertyNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.
 });
 NodeTypes['graphProperty'] = graphPropertyNode;
 const startEventNode = new NodeType('startEvent');
-startEventNode.addSignature([], [gdjs.__particleEmmiter3DExtension.NodeValueType.EventStream], (context, data, inputs, outputs) => {
+startEventNode.addSignature([], [NodeValueType.EventStream], (context, data, inputs, outputs) => {
     outputs[0] = [{ type: 'start' }];
 });
 NodeTypes['startEvent'] = startEventNode;
 const repeaterNode = new NodeType('repeater');
-repeaterNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.EventStream, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.EventStream], (context, data, inputs, outputs) => {
+repeaterNode.addSignature([NodeValueType.EventStream, NodeValueType.Number], [NodeValueType.EventStream], (context, data, inputs, outputs) => {
     const arr = inputs[0];
     const count = inputs[1];
     const result = [];
@@ -6118,44 +6117,44 @@ repeaterNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Event
 });
 NodeTypes['repeater'] = repeaterNode;
 const timeNode = new NodeType('time');
-timeNode.addSignature([], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+timeNode.addSignature([], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = context.emissionState.time;
 });
 NodeTypes['time'] = timeNode;
 const deltaNode = new NodeType('delta');
-deltaNode.addSignature([], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+deltaNode.addSignature([], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = context.delta;
 });
 NodeTypes['delta'] = deltaNode;
 const outputNode = new NodeType('output');
-outputNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+outputNode.addSignature([NodeValueType.Number], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0];
 });
-outputNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], (context, data, inputs, outputs) => {
+outputNode.addSignature([NodeValueType.Vec2], [NodeValueType.Vec2], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0];
 });
-outputNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], (context, data, inputs, outputs) => {
+outputNode.addSignature([NodeValueType.Vec3], [NodeValueType.Vec3], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0];
 });
-outputNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], (context, data, inputs, outputs) => {
+outputNode.addSignature([NodeValueType.Vec4], [NodeValueType.Vec4], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0];
 });
-outputNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean], [gdjs.__particleEmmiter3DExtension.NodeValueType.Boolean], (context, data, inputs, outputs) => {
+outputNode.addSignature([NodeValueType.Boolean], [NodeValueType.Boolean], (context, data, inputs, outputs) => {
     outputs[0] = inputs[0];
 });
 NodeTypes['output'] = outputNode;
 const lerpNode = new NodeType('lerp');
-lerpNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+lerpNode.addSignature([NodeValueType.Number, NodeValueType.Number, NodeValueType.Number], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] =
         inputs[0] * (1 - inputs[2]) + inputs[1] * inputs[2];
 });
-lerpNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], (context, data, inputs, outputs) => {
+lerpNode.addSignature([NodeValueType.Vec2, NodeValueType.Vec2, NodeValueType.Number], [NodeValueType.Vec2], (context, data, inputs, outputs) => {
     outputs[0].lerpVectors(inputs[0], inputs[1], inputs[2]);
 });
-lerpNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], (context, data, inputs, outputs) => {
+lerpNode.addSignature([NodeValueType.Vec3, NodeValueType.Vec3, NodeValueType.Number], [NodeValueType.Vec3], (context, data, inputs, outputs) => {
     outputs[0].lerpVectors(inputs[0], inputs[1], inputs[2]);
 });
-lerpNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], (context, data, inputs, outputs) => {
+lerpNode.addSignature([NodeValueType.Vec4, NodeValueType.Vec4, NodeValueType.Number], [NodeValueType.Vec4], (context, data, inputs, outputs) => {
     outputs[0].lerpVectors(inputs[0], inputs[1], inputs[2]);
 });
 NodeTypes['lerp'] = lerpNode;
@@ -6163,12 +6162,12 @@ const normalD = (x) => {
     return (1 / Math.sqrt(2 * Math.PI)) * Math.exp(x * x * -0.5);
 };
 const normalDistributionNode = new NodeType('normDistrib');
-normalDistributionNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+normalDistributionNode.addSignature([NodeValueType.Number], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = normalD(inputs[0]);
 });
 NodeTypes['normDistrib'] = normalDistributionNode;
 const normcdfNode = new NodeType('normcdf');
-normcdfNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+normcdfNode.addSignature([NodeValueType.Number], [NodeValueType.Number], (context, data, inputs, outputs) => {
     let x = inputs[0];
     const a1 = 0.254829592;
     const a2 = -0.284496736;
@@ -6199,53 +6198,53 @@ const normcdfInv = (p) => {
         return rationalApproximation(Math.sqrt(-2.0 * Math.log(1 - p)));
     }
 };
-normcdfInvNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+normcdfInvNode.addSignature([NodeValueType.Number], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = normcdfInv(inputs[0]);
 });
 NodeTypes['normcdfInv'] = normcdfInvNode;
 const clampNode = new NodeType('clamp');
-clampNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+clampNode.addSignature([NodeValueType.Number, NodeValueType.Number, NodeValueType.Number], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = Math.max(Math.min(inputs[0], inputs[2]), inputs[1]);
 });
 NodeTypes['clamp'] = clampNode;
 const smoothstepNode = new NodeType('smoothstep');
-smoothstepNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+smoothstepNode.addSignature([NodeValueType.Number, NodeValueType.Number, NodeValueType.Number], [NodeValueType.Number], (context, data, inputs, outputs) => {
     const x = Math.max(Math.min(inputs[0], inputs[2]), inputs[1]);
     outputs[0] = x * x * (3 - 2 * x);
 });
 NodeTypes['smoothstep'] = smoothstepNode;
 const randomNode = new NodeType('random');
-randomNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Number, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [gdjs.__particleEmmiter3DExtension.NodeValueType.Number], (context, data, inputs, outputs) => {
+randomNode.addSignature([NodeValueType.Number, NodeValueType.Number], [NodeValueType.Number], (context, data, inputs, outputs) => {
     outputs[0] = Math.random() * (inputs[1] - inputs[0]) + inputs[0];
 });
-randomNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], (context, data, inputs, outputs) => {
+randomNode.addSignature([NodeValueType.Vec2, NodeValueType.Vec2], [NodeValueType.Vec2], (context, data, inputs, outputs) => {
     let random = Math.random();
     outputs[0].lerpVectors(inputs[0], inputs[1], random);
 });
-randomNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], (context, data, inputs, outputs) => {
+randomNode.addSignature([NodeValueType.Vec3, NodeValueType.Vec3], [NodeValueType.Vec3], (context, data, inputs, outputs) => {
     let random = Math.random();
     outputs[0].lerpVectors(inputs[0], inputs[1], random);
 });
-randomNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], (context, data, inputs, outputs) => {
+randomNode.addSignature([NodeValueType.Vec4, NodeValueType.Vec4], [NodeValueType.Vec4], (context, data, inputs, outputs) => {
     let random = Math.random();
     outputs[0].lerpVectors(inputs[0], inputs[1], random);
 });
 NodeTypes['random'] = randomNode;
 const vrandNode = new NodeType('vrand');
-vrandNode.addSignature([], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec2], (context, data, inputs, outputs) => {
+vrandNode.addSignature([], [NodeValueType.Vec2], (context, data, inputs, outputs) => {
     let x = normcdfInv(Math.random());
     let y = normcdfInv(Math.random());
     const mag = Math.sqrt(x * x + y * y);
     outputs[0].set(x / mag, y / mag);
 });
-vrandNode.addSignature([], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3], (context, data, inputs, outputs) => {
+vrandNode.addSignature([], [NodeValueType.Vec3], (context, data, inputs, outputs) => {
     let x = normcdfInv(Math.random());
     let y = normcdfInv(Math.random());
     let z = normcdfInv(Math.random());
     const mag = Math.sqrt(x * x + y * y + z * z);
     outputs[0].set(x / mag, y / mag, z / mag);
 });
-vrandNode.addSignature([], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4], (context, data, inputs, outputs) => {
+vrandNode.addSignature([], [NodeValueType.Vec4], (context, data, inputs, outputs) => {
     let x = normcdfInv(Math.random());
     let y = normcdfInv(Math.random());
     let z = normcdfInv(Math.random());
@@ -6255,7 +6254,7 @@ vrandNode.addSignature([], [gdjs.__particleEmmiter3DExtension.NodeValueType.Vec4
 });
 NodeTypes['vrand'] = vrandNode;
 const bsdfNode = new NodeType('bsdf');
-bsdfNode.addSignature([gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3, gdjs.__particleEmmiter3DExtension.NodeValueType.Vec3, gdjs.__particleEmmiter3DExtension.NodeValueType.Number], [], (context, data, inputs, outputs) => { });
+bsdfNode.addSignature([NodeValueType.Vec3, NodeValueType.Vec3, NodeValueType.Vec3, NodeValueType.Number], [], (context, data, inputs, outputs) => { });
 NodeTypes['bsdf'] = bsdfNode;
 const OutputNodeTypeNames = new Set(['output', 'particleProperty', 'graphProperty', 'emit']);
 
@@ -6357,28 +6356,28 @@ class NodeVFX {
         return this.rendererSettings.renderMode;
     }
     set renderMode(renderMode) {
-        if ((this.rendererSettings.renderMode != gdjs.__particleEmmiter3DExtension.RenderMode.Trail && renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Trail) ||
-            (this.rendererSettings.renderMode == gdjs.__particleEmmiter3DExtension.RenderMode.Trail && renderMode !== gdjs.__particleEmmiter3DExtension.RenderMode.Trail)) {
+        if ((this.rendererSettings.renderMode != RenderMode.Trail && renderMode === RenderMode.Trail) ||
+            (this.rendererSettings.renderMode == RenderMode.Trail && renderMode !== RenderMode.Trail)) {
             this.restart();
             this.particles.length = 0;
         }
         if (this.rendererSettings.renderMode !== renderMode) {
             switch (renderMode) {
-                case gdjs.__particleEmmiter3DExtension.RenderMode.Trail:
+                case RenderMode.Trail:
                     this.rendererEmitterSettings = {
                         startLength: 30,
                         followLocalOrigin: false,
                     };
                     break;
-                case gdjs.__particleEmmiter3DExtension.RenderMode.Mesh:
+                case RenderMode.Mesh:
                     this.rendererEmitterSettings = {
                         geometry: new THREE.PlaneGeometry(1, 1),
                     };
                     break;
-                case gdjs.__particleEmmiter3DExtension.RenderMode.BillBoard:
-                case gdjs.__particleEmmiter3DExtension.RenderMode.VerticalBillBoard:
-                case gdjs.__particleEmmiter3DExtension.RenderMode.HorizontalBillBoard:
-                case gdjs.__particleEmmiter3DExtension.RenderMode.StretchedBillBoard:
+                case RenderMode.BillBoard:
+                case RenderMode.VerticalBillBoard:
+                case RenderMode.HorizontalBillBoard:
+                case RenderMode.StretchedBillBoard:
                     this.rendererEmitterSettings = {};
                     break;
             }
@@ -6417,7 +6416,7 @@ class NodeVFX {
         this.interpreter = new Interpreter();
         this.rendererSettings = {
             instancingGeometry: (_d = parameters.instancingGeometry) !== null && _d !== void 0 ? _d : DEFAULT_GEOMETRY,
-            renderMode: (_e = parameters.renderMode) !== null && _e !== void 0 ? _e : gdjs.__particleEmmiter3DExtension.RenderMode.BillBoard,
+            renderMode: (_e = parameters.renderMode) !== null && _e !== void 0 ? _e : RenderMode.BillBoard,
             renderOrder: (_f = parameters.renderOrder) !== null && _f !== void 0 ? _f : 0,
             material: parameters.material,
             layers: (_g = parameters.layers) !== null && _g !== void 0 ? _g : new THREE.Layers(),
@@ -6455,7 +6454,7 @@ class NodeVFX {
         const particle = this.particles[this.particleNum - 1];
         particle.reset();
         this.interpreter.run(this.updateGraph, { particle: particle, emissionState: this.emissionState });
-        if (this.rendererSettings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Trail &&
+        if (this.rendererSettings.renderMode === RenderMode.Trail &&
             this.rendererEmitterSettings.followLocalOrigin) {
             const trail = particle;
             trail.localPosition = new THREE.Vector3().copy(trail.position);
@@ -6542,7 +6541,7 @@ class NodeVFX {
             }
             this.particles[i].age += delta;
         }
-        if (this.rendererSettings.renderMode === gdjs.__particleEmmiter3DExtension.RenderMode.Trail) {
+        if (this.rendererSettings.renderMode === RenderMode.Trail) {
             for (let i = 0; i < this.particleNum; i++) {
                 const particle = this.particles[i];
                 particle.update();
@@ -6596,102 +6595,92 @@ class NodeVFX {
     }
 }
 
-gdjs.__particleEmmiter3DExtension.ApplyCollision = ApplyCollision;
-gdjs.__particleEmmiter3DExtension.ApplyForce = ApplyForce;
-gdjs.__particleEmmiter3DExtension.ApplySequences = ApplySequences;
-gdjs.__particleEmmiter3DExtension.AxisAngleGenerator = AxisAngleGenerator;
-gdjs.__particleEmmiter3DExtension.BatchedParticleRenderer = BatchedParticleRenderer;
-gdjs.__particleEmmiter3DExtension.BatchedRenderer = BatchedRenderer;
-gdjs.__particleEmmiter3DExtension.BehaviorFromJSON = BehaviorFromJSON;
-gdjs.__particleEmmiter3DExtension.BehaviorTypes = BehaviorTypes;
-gdjs.__particleEmmiter3DExtension.Bezier = Bezier;
-gdjs.__particleEmmiter3DExtension.ChangeEmitDirection = ChangeEmitDirection;
-gdjs.__particleEmmiter3DExtension.ColorGeneratorFromJSON = ColorGeneratorFromJSON;
-gdjs.__particleEmmiter3DExtension.ColorOverLife = ColorOverLife;
-gdjs.__particleEmmiter3DExtension.ColorRange = ColorRange;
-gdjs.__particleEmmiter3DExtension.ConeEmitter = ConeEmitter;
-gdjs.__particleEmmiter3DExtension.ConstantColor = ConstantColor;
-gdjs.__particleEmmiter3DExtension.ConstantValue = ConstantValue;
-gdjs.__particleEmmiter3DExtension.DonutEmitter = DonutEmitter;
-gdjs.__particleEmmiter3DExtension.EmitSubParticleSystem = EmitSubParticleSystem;
-gdjs.__particleEmmiter3DExtension.EmitterFromJSON = EmitterFromJSON;
-gdjs.__particleEmmiter3DExtension.EmitterShapes = EmitterShapes;
-gdjs.__particleEmmiter3DExtension.EulerGenerator = EulerGenerator;
-gdjs.__particleEmmiter3DExtension.ForceOverLife = ForceOverLife;
-gdjs.__particleEmmiter3DExtension.FrameOverLife = FrameOverLife;
-gdjs.__particleEmmiter3DExtension.GeneratorFromJSON = GeneratorFromJSON;
-gdjs.__particleEmmiter3DExtension.Gradient = Gradient;
-gdjs.__particleEmmiter3DExtension.GraphNodeType = GraphNodeType;
-gdjs.__particleEmmiter3DExtension.GravityForce = GravityForce;
-gdjs.__particleEmmiter3DExtension.GridEmitter = GridEmitter;
-gdjs.__particleEmmiter3DExtension.Interpreter = Interpreter;
-gdjs.__particleEmmiter3DExtension.IntervalValue = IntervalValue;
-gdjs.__particleEmmiter3DExtension.MeshSurfaceEmitter = MeshSurfaceEmitter;
-gdjs.__particleEmmiter3DExtension.Node = Node;
-gdjs.__particleEmmiter3DExtension.NodeGraph = NodeGraph;
-gdjs.__particleEmmiter3DExtension.NodeType = NodeType;
-gdjs.__particleEmmiter3DExtension.NodeTypes = NodeTypes;
-gdjs.__particleEmmiter3DExtension.Noise = Noise;
-gdjs.__particleEmmiter3DExtension.OrbitOverLife = OrbitOverLife;
-gdjs.__particleEmmiter3DExtension.ParticleEmitter = ParticleEmitter;
-gdjs.__particleEmmiter3DExtension.ParticleSystem = ParticleSystem;
-gdjs.__particleEmmiter3DExtension.PiecewiseBezier = PiecewiseBezier;
-gdjs.__particleEmmiter3DExtension.PiecewiseFunction = PiecewiseFunction;
-gdjs.__particleEmmiter3DExtension.Plugins = Plugins;
-gdjs.__particleEmmiter3DExtension.PointEmitter = PointEmitter;
-gdjs.__particleEmmiter3DExtension.QuarksLoader = QuarksLoader;
-gdjs.__particleEmmiter3DExtension.RandomColor = RandomColor;
-gdjs.__particleEmmiter3DExtension.RandomColorBetweenGradient = RandomColorBetweenGradient;
-gdjs.__particleEmmiter3DExtension.RandomQuatGenerator = RandomQuatGenerator;
-gdjs.__particleEmmiter3DExtension.RecordState = RecordState;
-gdjs.__particleEmmiter3DExtension.Rotation3DOverLife = Rotation3DOverLife;
-gdjs.__particleEmmiter3DExtension.RotationGeneratorFromJSON = RotationGeneratorFromJSON;
-gdjs.__particleEmmiter3DExtension.RotationOverLife = RotationOverLife;
-gdjs.__particleEmmiter3DExtension.SequencerFromJSON = SequencerFromJSON;
-gdjs.__particleEmmiter3DExtension.SizeOverLife = SizeOverLife;
-gdjs.__particleEmmiter3DExtension.SpeedOverLife = SpeedOverLife;
-gdjs.__particleEmmiter3DExtension.SphereEmitter = SphereEmitter;
-gdjs.__particleEmmiter3DExtension.SpriteBatch = SpriteBatch;
-gdjs.__particleEmmiter3DExtension.SpriteParticle = SpriteParticle;
-gdjs.__particleEmmiter3DExtension.TextureSequencer = TextureSequencer;
-gdjs.__particleEmmiter3DExtension.TrailBatch = TrailBatch;
-gdjs.__particleEmmiter3DExtension.TrailParticle = TrailParticle;
-gdjs.__particleEmmiter3DExtension.TurbulenceField = TurbulenceField;
-gdjs.__particleEmmiter3DExtension.VFXBatch = VFXBatch;
-gdjs.__particleEmmiter3DExtension.ValueGeneratorFromJSON = ValueGeneratorFromJSON;
-gdjs.__particleEmmiter3DExtension.WidthOverLength = WidthOverLength;
-gdjs.__particleEmmiter3DExtension.Wire = Wire;
-gdjs.__particleEmmiter3DExtension.genDefaultForNodeValueType = genDefaultForNodeValueType;
-gdjs.__particleEmmiter3DExtension.getPhysicsResolver = getPhysicsResolver;
-gdjs.__particleEmmiter3DExtension.loadPlugin = loadPlugin;
-gdjs.__particleEmmiter3DExtension.setPhysicsResolver = setPhysicsResolver;
-gdjs.__particleEmmiter3DExtension.unloadPlugin = unloadPlugin;
+gdjs.__particleEmmiter3DExtension = {
+    ParticleEmitter3DRenderer,
+    ParticleEmitterAdapter,
 
+    ApplyCollision,
+    ApplyForce,
+    ApplySequences,
+    AxisAngleGenerator,
+    BatchedParticleRenderer,
+    BatchedRenderer,
+    BehaviorFromJSON,
+    BehaviorTypes,
+    Bezier,
+    ChangeEmitDirection,
+    ColorGeneratorFromJSON,
+    ColorOverLife,
+    ColorRange,
+    ConeEmitter,
+    ConstantColor,
+    ConstantValue,
+    DonutEmitter,
+    EmitSubParticleSystem,
+    EmitterFromJSON,
+    EmitterMode,
+    EmitterShapes,
+    EulerGenerator,
+    ForceOverLife,
+    FrameOverLife,
+    GeneratorFromJSON,
+    Gradient,
+    GraphNodeType,
+    GravityForce,
+    GridEmitter,
+    Interpreter,
+    IntervalValue,
+    MeshSurfaceEmitter,
+    Node,
+    NodeGraph,
+    NodeType,
+    NodeTypes,
+    NodeValueType,
+    Noise,
+    OrbitOverLife,
+    ParticleEmitter,
+    ParticleSystem,
+    PiecewiseBezier,
+    PiecewiseFunction,
+    Plugins,
+    PointEmitter,
+    QuarksLoader,
+    RandomColor,
+    RandomColorBetweenGradient,
+    RandomQuatGenerator,
+    RecordState,
+    RenderMode,
+    Rotation3DOverLife,
+    RotationGeneratorFromJSON,
+    RotationOverLife,
+    SequencerFromJSON,
+    SizeOverLife,
+    SpeedOverLife,
+    SphereEmitter,
+    SpriteBatch,
+    SpriteParticle,
+    SubParticleEmitMode,
+    TextureSequencer,
+    TrailBatch,
+    TrailParticle,
+    TurbulenceField,
+    VFXBatch,
+    ValueGeneratorFromJSON,
+    WidthOverLength,
+    Wire,
+    genDefaultForNodeValueType,
+    getPhysicsResolver,
+    loadPlugin,
+    setPhysicsResolver,
+    unloadPlugin,
+}
 };
 gdjs.evtsExt__ParticleEmitter3D__DefineHelperClasses.eventsList0 = function(runtimeScene, eventsFunctionContext) {
 
 {
 
 
-gdjs.evtsExt__ParticleEmitter3D__DefineHelperClasses.userFunc0x1b3e028(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
-
-}
-
-
-};gdjs.evtsExt__ParticleEmitter3D__DefineHelperClasses.eventsList1 = function(runtimeScene, eventsFunctionContext) {
-
-{
-
-
-let isConditionTrue_0 = false;
-isConditionTrue_0 = false;
-isConditionTrue_0 = gdjs.evtTools.variable.getVariableBoolean(runtimeScene.getGame().getVariables().get("_ParticleEmmiter3DExtension_ClassesDefined"), false);
-if (isConditionTrue_0) {
-{gdjs.evtTools.variable.setVariableBoolean(runtimeScene.getGame().getVariables().get("_ParticleEmmiter3DExtension_ClassesDefined"), true);
-}
-{ //Subevents
-gdjs.evtsExt__ParticleEmitter3D__DefineHelperClasses.eventsList0(runtimeScene, eventsFunctionContext);} //End of subevents
-}
+gdjs.evtsExt__ParticleEmitter3D__DefineHelperClasses.userFunc0xde8d30(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 
@@ -6752,7 +6741,7 @@ parentEventsFunctionContext.getInstancesCountOnScene(objectName) :
 };
 
 
-gdjs.evtsExt__ParticleEmitter3D__DefineHelperClasses.eventsList1(runtimeScene, eventsFunctionContext);
+gdjs.evtsExt__ParticleEmitter3D__DefineHelperClasses.eventsList0(runtimeScene, eventsFunctionContext);
 
 return;
 }

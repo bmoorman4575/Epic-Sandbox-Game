@@ -8,7 +8,99 @@ if (typeof gdjs.evtsExt__gameruntime__onFirstSceneLoaded !== "undefined") {
 gdjs.evtsExt__gameruntime__onFirstSceneLoaded = {};
 
 
+gdjs.evtsExt__gameruntime__onFirstSceneLoaded.userFunc0x1fc70d8 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+"use strict";
+// Get the current date and time
+let now = new Date();
+
+// Get the date components
+let month = now.getMonth() + 1; // Months are zero-based
+let day = now.getDate();
+let year = now.getFullYear();
+
+// Get the time components
+let hours = now.getHours();
+let minutes = now.getMinutes();
+let seconds = now.getSeconds();
+
+// Determine AM or PM
+let ampm = hours >= 12 ? 'PM' : 'AM';
+
+// Convert hours to 12-hour format
+hours = hours % 12;
+hours = hours ? hours : 12; // the hour '0' should be '12'
+
+// Format minutes and seconds to always be two digits
+minutes = minutes < 10 ? '0' + minutes : minutes;
+seconds = seconds < 10 ? '0' + seconds : seconds;
+
+// Construct the date and time strings
+let dateStr = ` ${month}/${day}/${year}`;
+let timeStr = ` ${hours}:${minutes}:${seconds} ${ampm}`;
+
+// Print to the console
+console.log(dateStr);
+console.log(timeStr);
+runtimeScene.getGame().getVariables().get("previewbuilddate").setString(dateStr);
+runtimeScene.getGame().getVariables().get("previewbuildtime").setString(timeStr);
+
+};
+gdjs.evtsExt__gameruntime__onFirstSceneLoaded.asyncCallback29776716 = function (runtimeScene, eventsFunctionContext, asyncObjectsList) {
+asyncObjectsList.restoreLocalVariablesContainers(eventsFunctionContext.localVariables);
+{runtimeScene.getScene().getVariables().get("previewbuildtime").setString("Build date: " + gdjs.evtTools.variable.getVariableString(runtimeScene.getGame().getVariables().get("previewbuilddate")));
+}{gdjs.fileSystem.saveVariableToJSONFile(runtimeScene.getScene().getVariables().get("previewbuildtime"), gdjs.fileSystem.getDocumentsPath(runtimeScene) + gdjs.fileSystem.getPathDelimiter() + "Gdevelop projects" + gdjs.fileSystem.getPathDelimiter() + "BTMs epic sandbox game" + gdjs.fileSystem.getPathDelimiter() + "gamebuilddate.json", gdjs.VariablesContainer.badVariable);
+}eventsFunctionContext.localVariables.length = 0;
+}
 gdjs.evtsExt__gameruntime__onFirstSceneLoaded.eventsList0 = function(runtimeScene, eventsFunctionContext) {
+
+{
+
+
+{
+{
+const asyncObjectsList = new gdjs.LongLivedObjectsList();
+asyncObjectsList.backupLocalVariablesContainers(eventsFunctionContext.localVariables);
+runtimeScene.getAsyncTasksManager().addTask(gdjs.evtTools.runtimeScene.wait(0.5), (runtimeScene) => (gdjs.evtsExt__gameruntime__onFirstSceneLoaded.asyncCallback29776716(runtimeScene, eventsFunctionContext, asyncObjectsList)));
+}
+}
+
+}
+
+
+};gdjs.evtsExt__gameruntime__onFirstSceneLoaded.eventsList1 = function(runtimeScene, eventsFunctionContext) {
+
+{
+
+
+let isConditionTrue_0 = false;
+{
+}
+
+}
+
+
+{
+
+
+gdjs.evtsExt__gameruntime__onFirstSceneLoaded.userFunc0x1fc70d8(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+
+}
+
+
+{
+
+
+let isConditionTrue_0 = false;
+{
+
+{ //Subevents
+gdjs.evtsExt__gameruntime__onFirstSceneLoaded.eventsList0(runtimeScene, eventsFunctionContext);} //End of subevents
+}
+
+}
+
+
+};gdjs.evtsExt__gameruntime__onFirstSceneLoaded.eventsList2 = function(runtimeScene, eventsFunctionContext) {
 
 {
 
@@ -26,13 +118,30 @@ if (isConditionTrue_0) {
 {
 
 
+
+}
+
+
+{
+
+
 let isConditionTrue_0 = false;
 isConditionTrue_0 = false;
 isConditionTrue_0 = gdjs.evtTools.systemInfo.isPreview(runtimeScene);
 if (isConditionTrue_0) {
 {gdjs.evtTools.window.setWindowSize(runtimeScene, 1280, 720, false);
 }{gdjs.evtTools.window.centerWindow(runtimeScene);
-}}
+}
+{ //Subevents
+gdjs.evtsExt__gameruntime__onFirstSceneLoaded.eventsList1(runtimeScene, eventsFunctionContext);} //End of subevents
+}
+
+}
+
+
+{
+
+
 
 }
 
@@ -93,7 +202,7 @@ parentEventsFunctionContext.getInstancesCountOnScene(objectName) :
 };
 
 
-gdjs.evtsExt__gameruntime__onFirstSceneLoaded.eventsList0(runtimeScene, eventsFunctionContext);
+gdjs.evtsExt__gameruntime__onFirstSceneLoaded.eventsList2(runtimeScene, eventsFunctionContext);
 
 return;
 }

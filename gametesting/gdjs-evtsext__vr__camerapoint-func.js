@@ -8,18 +8,26 @@ if (typeof gdjs.evtsExt__VR__camerapoint !== "undefined") {
 gdjs.evtsExt__VR__camerapoint = {};
 
 
-gdjs.evtsExt__VR__camerapoint.userFunc0x10fdd88 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__VR__camerapoint.userFunc0x16cf9d8 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
-// Define a function to rotate the camera
-function rotateCamera(camera, angle) {
-    camera.rotation.y += THREE.Math.degToRad(angle);
+// Get the Three.js renderer
+const threeRenderer = runtimeScene.getGame().getRenderer().getThreeRenderer();
+
+if (threeRenderer && threeRenderer.xr.isPresenting) {
+    // Get the XR camera
+    const xrCamera = threeRenderer.xr.getCamera();
+
+    // Function to rotate the camera by 90 degrees along the Y-axis
+    function rotateXRCamera() {
+        const rotationAngle = THREE.MathUtils.degToRad(90); // Convert degrees to radians
+        xrCamera.rotation.y += rotationAngle;
+    }
+
+    // Call the rotateXRCamera function
+    rotateXRCamera();
+} else {
+    console.error("Three.js renderer or XR camera not found or XR session not active.");
 }
-
-// Find the camera in your Three.js renderer
-const camera = renderer.xr.getCamera(); // Adjust this line if your camera is accessed differently
-
-// Rotate the camera by 30 degrees
-rotateCamera(camera, 30);
 
 };
 gdjs.evtsExt__VR__camerapoint.eventsList0 = function(runtimeScene, eventsFunctionContext) {
@@ -37,7 +45,7 @@ let isConditionTrue_0 = false;
 {
 
 
-gdjs.evtsExt__VR__camerapoint.userFunc0x10fdd88(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__VR__camerapoint.userFunc0x16cf9d8(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

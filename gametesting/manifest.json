@@ -1,0 +1,15 @@
+{
+  "name": "Epic Sandbox Game",
+  "short_name": "Epic Sandbox Game",
+  "id": "com.btmgames.btmsepicsandboxgame",
+  "description": "Welcome to Epic Sandbox Game! (Early Access)\nA game I have been making in my free time just to have a fun project to do.",
+  "orientation": "landscape",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "categories": [
+    "games",
+    "entertainment"
+  ],
+  "theme_color": "#000000"
+}

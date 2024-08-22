@@ -9,7 +9,7 @@ gdjs.evtsExt__Shadows__CastShadow = {};
 gdjs.evtsExt__Shadows__CastShadow.GDObjectObjects1= [];
 
 
-gdjs.evtsExt__Shadows__CastShadow.userFunc0x9dc208 = function GDJSInlineCode(runtimeScene, objects, eventsFunctionContext) {
+gdjs.evtsExt__Shadows__CastShadow.userFunc0xfc1a30 = function GDJSInlineCode(runtimeScene, objects, eventsFunctionContext) {
 "use strict";
 objects[0].get3DRendererObject().traverse((node) => {
     if (node instanceof THREE.Mesh && node.isMesh) {
@@ -25,7 +25,7 @@ gdjs.copyArray(eventsFunctionContext.getObjects("Object"), gdjs.evtsExt__Shadows
 
 var objects = [];
 objects.push.apply(objects,gdjs.evtsExt__Shadows__CastShadow.GDObjectObjects1);
-gdjs.evtsExt__Shadows__CastShadow.userFunc0x9dc208(runtimeScene, objects, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Shadows__CastShadow.userFunc0xfc1a30(runtimeScene, objects, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

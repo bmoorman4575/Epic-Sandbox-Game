@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__Raycaster3D__IntersectionX !== "undefined") {
 gdjs.evtsExt__Raycaster3D__IntersectionX = {};
 
 
-gdjs.evtsExt__Raycaster3D__IntersectionX.userFunc0x21e7130 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__Raycaster3D__IntersectionX.userFunc0x1867e68 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 eventsFunctionContext.returnValue = gdjs.__raycaster3DExtension.raycaster.lastPositionX;
 };
@@ -17,7 +17,7 @@ gdjs.evtsExt__Raycaster3D__IntersectionX.eventsList0 = function(runtimeScene, ev
 {
 
 
-gdjs.evtsExt__Raycaster3D__IntersectionX.userFunc0x21e7130(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Raycaster3D__IntersectionX.userFunc0x1867e68(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

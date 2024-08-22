@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__Physics3D__SetWallPositionZ !== "undefined") {
 gdjs.evtsExt__Physics3D__SetWallPositionZ = {};
 
 
-gdjs.evtsExt__Physics3D__SetWallPositionZ.userFunc0x12f7bd0 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__Physics3D__SetWallPositionZ.userFunc0x1141b00 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 const identifier = eventsFunctionContext.getArgument("Identifier");
 
@@ -30,7 +30,7 @@ gdjs.evtsExt__Physics3D__SetWallPositionZ.eventsList0 = function(runtimeScene, e
 {
 
 
-gdjs.evtsExt__Physics3D__SetWallPositionZ.userFunc0x12f7bd0(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Physics3D__SetWallPositionZ.userFunc0x1141b00(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

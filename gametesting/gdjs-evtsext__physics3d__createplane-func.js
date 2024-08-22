@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__Physics3D__CreatePlane !== "undefined") {
 gdjs.evtsExt__Physics3D__CreatePlane = {};
 
 
-gdjs.evtsExt__Physics3D__CreatePlane.userFunc0x1241a70 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__Physics3D__CreatePlane.userFunc0x1209dc8 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 const scene = runtimeScene.getLayer('').getRenderer().getThreeScene();
 const world = runtimeScene.__CannonJS.world;
@@ -74,7 +74,7 @@ gdjs.evtsExt__Physics3D__CreatePlane.eventsList0 = function(runtimeScene, events
 {
 
 
-gdjs.evtsExt__Physics3D__CreatePlane.userFunc0x1241a70(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Physics3D__CreatePlane.userFunc0x1209dc8(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

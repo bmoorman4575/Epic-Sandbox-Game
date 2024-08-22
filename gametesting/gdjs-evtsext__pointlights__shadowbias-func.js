@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__PointLights__ShadowBias !== "undefined") {
 gdjs.evtsExt__PointLights__ShadowBias = {};
 
 
-gdjs.evtsExt__PointLights__ShadowBias.userFunc0x105af88 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__PointLights__ShadowBias.userFunc0x1867e68 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 if (runtimeScene._pointLightsExtension.pointLights.has(eventsFunctionContext.getArgument("Identifier"))) {
   eventsFunctionContext.returnValue = runtimeScene._pointLightsExtension.pointLights.get(eventsFunctionContext.getArgument("Identifier")).pointLight.shadow.bias;
@@ -21,7 +21,7 @@ gdjs.evtsExt__PointLights__ShadowBias.eventsList0 = function(runtimeScene, event
 {
 
 
-gdjs.evtsExt__PointLights__ShadowBias.userFunc0x105af88(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__PointLights__ShadowBias.userFunc0x1867e68(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 

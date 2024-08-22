@@ -8,7 +8,7 @@ if (typeof gdjs.evtsExt__Physics3D__SetGravity !== "undefined") {
 gdjs.evtsExt__Physics3D__SetGravity = {};
 
 
-gdjs.evtsExt__Physics3D__SetGravity.userFunc0x12e2408 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
+gdjs.evtsExt__Physics3D__SetGravity.userFunc0x1209dc8 = function GDJSInlineCode(runtimeScene, eventsFunctionContext) {
 "use strict";
 const world = runtimeScene.__CannonJS.world;
 
@@ -24,7 +24,7 @@ gdjs.evtsExt__Physics3D__SetGravity.eventsList0 = function(runtimeScene, eventsF
 {
 
 
-gdjs.evtsExt__Physics3D__SetGravity.userFunc0x12e2408(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
+gdjs.evtsExt__Physics3D__SetGravity.userFunc0x1209dc8(runtimeScene, typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined);
 
 }
 
