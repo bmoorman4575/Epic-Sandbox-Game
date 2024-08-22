@@ -19040,7 +19040,7 @@ gdjs.GAMECode.eventsList343(runtimeScene);} //End of subevents
 }
 
 
-};gdjs.GAMECode.userFunc0x2d1f348 = function GDJSInlineCode(runtimeScene) {
+};gdjs.GAMECode.userFunc0x18f5a40 = function GDJSInlineCode(runtimeScene) {
 "use strict";
 function parseCommand(str) {
     // Split the string by spaces
@@ -20501,7 +20501,7 @@ if (isConditionTrue_0) {
 {
 
 
-gdjs.GAMECode.userFunc0x2d1f348(runtimeScene);
+gdjs.GAMECode.userFunc0x18f5a40(runtimeScene);
 
 }
 

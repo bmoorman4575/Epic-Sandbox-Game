@@ -1214,7 +1214,7 @@ gdjs.menuCode.eventsList14(runtimeScene);} //End of subevents
 }
 
 
-};gdjs.menuCode.userFunc0x2c4cd98 = function GDJSInlineCode(runtimeScene) {
+};gdjs.menuCode.userFunc0x1824090 = function GDJSInlineCode(runtimeScene) {
 "use strict";
 function containsOnlyAllowedCharacters(input) {
     // Regular expression to match allowed characters: letters, numbers, spaces, and specified symbols including hyphen (-)
@@ -1235,7 +1235,7 @@ gdjs.menuCode.eventsList16 = function(runtimeScene) {
 {
 
 
-gdjs.menuCode.userFunc0x2c4cd98(runtimeScene);
+gdjs.menuCode.userFunc0x1824090(runtimeScene);
 
 }
 
@@ -1689,7 +1689,7 @@ gdjs.menuCode.eventsList21(runtimeScene);} //End of subevents
 }
 
 
-};gdjs.menuCode.userFunc0x2c4ffb0 = function GDJSInlineCode(runtimeScene) {
+};gdjs.menuCode.userFunc0x17e2200 = function GDJSInlineCode(runtimeScene) {
 "use strict";
 function containsOnlyAllowedCharacters(input) {
     // Regular expression to match allowed characters: letters, numbers, spaces, and specified symbols including hyphen (-)
@@ -1710,7 +1710,7 @@ gdjs.menuCode.eventsList23 = function(runtimeScene) {
 {
 
 
-gdjs.menuCode.userFunc0x2c4ffb0(runtimeScene);
+gdjs.menuCode.userFunc0x17e2200(runtimeScene);
 
 }
 
