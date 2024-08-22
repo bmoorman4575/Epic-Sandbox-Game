@@ -6,10 +6,10 @@
   "orientation": "landscape",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#384bff",
+  "background_color": "#0069f2",
   "categories": [
     "games",
     "entertainment"
   ],
-  "theme_color": "#5254ff"
+  "theme_color": "#0069f2"
 }
